@@ -18,8 +18,8 @@ function App() {
         <Route path="/home">
           <Home />
         </Route>
-        <Route path="/subreddit/:id">
-          <Subreddit />
+        <Route path="/r/:id">
+          <Home />
         </Route>
         <Route path="/comments/:idpost">
           <Post />

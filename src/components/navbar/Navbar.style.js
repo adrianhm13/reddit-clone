@@ -20,6 +20,7 @@ export const logo = css`
   align-items: center;
   gap: 1rem;
   color: black;
+  cursor: default;
   font-family: 'Lexend Zetta', sans-serif;
   margin-left: 1rem;
   flex-grow: 1;
@@ -75,20 +76,4 @@ export const userButtons = css`
   gap: 5px;
   flex-grow: 1;
   margin-right: auto;
-  button {
-    padding: 0.6rem;
-    min-width: 40px;
-    min-height: 32px;
-    border-radius: 30px;
-    border: 1px solid;
-    border-radius: 30px;
-    border: 1px solid #0079d3;
-    outline: none;
-    cursor: pointer;
-    color: #0079d3;
-    background-color: transparent;
-  }
-  button:hover {
-    background-color: #f7f7f7;
-  }
 `;

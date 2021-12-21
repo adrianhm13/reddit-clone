@@ -1,30 +1,29 @@
 /** @jsxImportSource @emotion/react */
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 // Style
-import { appStyle } from './App.style';
+import { appStyle } from "./App.style";
 
 // Pages
-import Home from './pages/home/Home'
-import Subreddit from './pages/subreddit/Subreddit'
-import Post from './pages/post/Post'
-
+import Home from "./pages/home/Home";
+import Subreddit from "./pages/subreddit/Subreddit";
+import Post from "./pages/post/Post";
 
 function App() {
   return (
     <div css={appStyle}>
       <BrowserRouter>
-      <Switch>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/r/:id">
-          <Home />
-        </Route>
-        <Route path="/comments/:idpost">
-          <Post />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/r/:id">
+            <Home />
+          </Route>
+          <Route path="/comments/:idpost">
+            <Post />
+          </Route>
+        </Switch>
       </BrowserRouter>
     </div>
   );

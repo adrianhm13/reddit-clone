@@ -4,11 +4,12 @@ import {
   ModalRightContent,
   ModalContent,
   InputsSign,
-  Divider
+  Divider,
 } from "../Modal/Modal.style";
-import { Button } from "../button/Button";
-import { Input } from "../Input/Input";
-export default function Modal({setShowModal}) {
+import LoginForm from "../login/LoginForm";
+import SignupForm from "../signup/SignupForm";
+
+export default function Modal({ setShowModal, action }) {
   return (
     <ModalMain>
       <ModalContent>
@@ -25,23 +26,13 @@ export default function Modal({setShowModal}) {
               setShowModal(false);
             }}
           ></i>
-          <h3>Login</h3>
+          {action === "login" ? <h3>Login</h3> : <h3>Signup</h3>}
           <Divider>
             <hr /> Or <hr />
           </Divider>
 
           <InputsSign>
-            <form>
-              <label>
-                <Input type="email" placeholder="Email"></Input>
-              </label>
-              <label>
-                <Input type="password" placeholder="Password"></Input>
-              </label>
-              <Button outline w100 mt1>
-                Login
-              </Button>
-            </form>
+            {action === "login" ? <LoginForm setShowModal={setShowModal}/> : <SignupForm setShowModal={setShowModal}/>}
           </InputsSign>
         </ModalRightContent>
       </ModalContent>

@@ -22,7 +22,7 @@ export const ModalContent = styled.div`
   position: fixed;
   background: white;
   width: 40%;
-  height: 50%;
+  height: 45%;
   top: 50%;
   left: 50%;
   display: flex;

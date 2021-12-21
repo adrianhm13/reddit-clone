@@ -6,7 +6,7 @@
 3. Login/Signup Forms
 
 4. Setting up database and auth from firestore
-
+    
 5. Creating useSignup hook
 
 6. Creating useAuthContext hook

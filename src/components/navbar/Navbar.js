@@ -20,7 +20,7 @@ export default function Navbar() {
       <div css={searchBarStyle}>
         <form>
           <label>
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
             <input
               type="search"
               placeholder="Search something of your interest"

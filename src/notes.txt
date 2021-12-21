@@ -1,0 +1,84 @@
+1. Pages and routes
+
+2. Navbar
+    Import bootstrap, create scss file to modify variables and import it into index.js
+
+3. Login/Signup Forms
+
+4. Setting up database and auth from firestore
+
+5. Creating useSignup hook
+
+6. Creating useAuthContext hook
+    1. AuthContext.js with the provider and wrapping the children, Reducer function to update state of user, and createContext to add the value to the provider
+    2. useAuth.js to consume that context and return it, so we have access to the dispatch function and value from the context/reducer
+
+7. Login action
+    1. Add the case of Login in the reducer function within AuthContext
+    2. In the useSignup hook, we import the useAuthContext hook (which has access to the dispatch function after using useContext)
+    3. Desctructure dispatch from useAuthContext so we can use it after signup the user so the user it's login
+
+8. Logout hook
+    1. useLogout hook, inside we declare an async function where we log out the user with the method .signOut() (imported from proyectAuth, config file of Firestore)
+    2. Return the function logout, error, isPending so we can use it wherever we want
+    3. We import the hook into the navbar to logout
+
+9. Cleanup functions
+    Explanation: if we are in the process of signin a new user and we click in another link, 
+    the process it's still loading and that leds an error, because it's trying to process it while the component it's unmounted
+
+    1. Create another state to see if it's cancelled, we use useEffect(() => {}, []) with a return setting the cancelled state to true.
+    This way when we click the button with the logout function, the component re-renders (the hook) so the state it's true, and therefore will not update the error
+    and isPending states.
+
+    "useEffect's clean-up runs after the next render, before the next useEffect." https://maxrozen.com/demystifying-useeffect-cleanup-function
+
+10. Login hook
+    1. Really similar to logout, but the function .signInWithCredentials... it will take the email/password parameters and it returns a response,
+    We can use this response to dispatch the action with payload response.user
+
+11. Conditional rendering of navbar
+    If user it's login or not, we will show a different info in the navbar with conditional rendering, like logout, or the name of the user.
+
+12. Listener from firebase for auth state. 
+
+    Explanation: Even if we are login, and firebase knows that, if we reload the website, the auth state goes back to null even if in firestore its still login.
+    Thats why its necessary to add a listener with a firebase method from proyectAuth
+    1. Add a new state in the AuthContextProvider (along with user), called authIsReady, it's gonna be called only one time (useEffect), in the beginning, to know if 
+    the user it's login or not and with a dispatch function will update the user(whatever its null or an user) and the state authIsReady set to true. To unsubscribe
+    we assign the function to a variable and we call it inside the function, so firebase will stop listening and it will not be triggered again.
+
+13. Conditional rendering for authIsReady.
+
+    In app.js we write a conditional rendering from the useAuthContext hook, so when authIsReady it's true (after the first loading and assigning the user null or 
+    login user) the app will be rendered 
+
+14. Route Guarding
+
+    If user its singup or login redirect to homepage, if there is no user, it will go to signup page.
+    1. Import Redirect from react-router-dom, and user from useAuthContext.
+    2. Conditional rendering checking if there is user or not per each page.
+
+15. Diary Forms
+
+
+16. useFirestore hook
+
+    1. Create data base Firestore
+    2. Create useFirestore.js (Add or remove documents to the collection)
+        1. useReducer for dispatch actions, useEffect for cleanups, useState for assigning state to the cleanups functions.
+        2. import projectFirestore to interact with the methods of firestore.
+        3. collection as parameter for the useFirestore hook, it's more reusable for different functions we assign it to a variable (like ref) to use it later on, 
+        for example like ref.add(doc)
+
+
+
+
+
+
+
+
+/// IDEAS
+
+-Write and choose the date as the user wish, and also filter by date as created, or date as picked while creating the entry
+-Use emojis to represent how it felt the user that day 

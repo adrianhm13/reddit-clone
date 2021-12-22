@@ -12,7 +12,8 @@ export const navbarStyle = css`
   z-index: 10;
   padding: 0.3rem;
   justify-content: space-between;
-  img {
+  @media (max-width: 524px) {
+    gap: 0.3rem;
   }
 `;
 export const logo = css`
@@ -21,12 +22,22 @@ export const logo = css`
   gap: 1rem;
   color: black;
   cursor: default;
-  font-family: 'Lexend Zetta', sans-serif;
   margin-left: 1rem;
   flex-grow: 1;
+  & h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-family: "Lexend Zetta", sans-serif;
+  }
   img {
     width: 32px;
     height: 32px;
+  }
+  @media (max-width: 524px) {
+    gap: 0.1rem;
+    & > h2 {
+      display: none;
+    }
   }
 `;
 
@@ -35,15 +46,15 @@ export const searchBarStyle = css`
   width: auto;
   height: auto;
   form {
-    margin-left: auto;
+
     margin-right: auto;
     border-radius: 2px;
     border: 1px solid #e3e3e3;
     background-color: #f1f1f1;
     width: 70%;
     height: 100%;
-    @media (max-width: 760px){
-      display:none;
+    @media (max-width: 760px) {
+      display: none;
     }
   }
   form:hover {

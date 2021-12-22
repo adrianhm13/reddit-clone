@@ -7,10 +7,12 @@ import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
 import { navbarStyle, searchBarStyle, userButtons, logo } from "./Navbar.style";
 import ProfileBadge from "../ProfileBadge/ProfileBadge";
+import CategorySelect from "../CategorySelect/CategorySelect";
 
-export default function Navbar() {
+export default function Navbar({categories}) {
   const { user } = useAuthContext();
   const { logout } = useLogout();
+
 
   return (
     <header css={navbarStyle}>
@@ -19,8 +21,14 @@ export default function Navbar() {
           src="https://blog.lastpass.com/wp-content/uploads/sites/20/2020/04/reddit-logo-2.jpg"
           alt="logo"
         ></img>
-        RedFake
+        <h2>RedFake</h2>
+        {user && (
+          <>
+            <CategorySelect categories={categories}/>
+          </>
+        )}
       </div>
+
       <div css={searchBarStyle}>
         <form>
           <label>
@@ -41,7 +49,7 @@ export default function Navbar() {
         )}
         {user && (
           <>
-          <ProfileBadge user={user} logout={logout}/>
+            <ProfileBadge user={user} logout={logout} />
           </>
         )}
       </div>

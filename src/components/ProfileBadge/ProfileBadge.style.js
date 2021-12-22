@@ -11,8 +11,8 @@ export const ProfileBadgeContainer = styled.button`
   transition: 0.7s;
   padding: 0;
   cursor: pointer;
-  @media (max-width: 760px) {
-    width: 75%;
+  @media (max-width: 1024px) {
+    width: 90%;
   }
   &:hover {
     border: 1px solid #e1e1e1;
@@ -34,6 +34,7 @@ export const ProfileBadgeContainer = styled.button`
 
 export const ProfileDropdown = styled.div`
   position: absolute;
+  left: 0;
   top: 30px;
   z-index: 1;
   width: 100%;
@@ -55,6 +56,6 @@ export const ProfileDropdown = styled.div`
     cursor: pointer;
   }
   & button:hover{
-      background-color: #E2E2E2;
+      background-color: #F0F0F0;
   }
 `;

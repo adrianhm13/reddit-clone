@@ -1,22 +1,58 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth } from "../firebase/config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
-  const [error, setError] = useState(false);
+  const [isCancelled, setIsCancelled] = useState(false);
+  const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(false);
+  const [user, setUser] = useState(null)
   const { dispatch } = useAuthContext();
 
-  const signup = (email, password, username) => {
+  const signup = async (email, password, username) => {
     setError(false);
-    createUserWithEmailAndPassword(auth, email, password, username)
-      .then((response) => {
-        dispatch({ type: "LOGIN", payload: response.user });
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-  };
+    setIsPending(true);
+    try {
+      //Create username
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+        username
+      );
 
-  return { error, signup };
+      if (!response) {
+        throw new Error("It wasn't possible to signup");
+      }
+
+      // //Update displayName to the user
+      await updateProfile(auth.currentUser, {displayName: username})
+
+
+      //Dispatch login action
+      dispatch({ type: "LOGIN", payload: response.user });
+
+      //Update states
+      if (!isCancelled) {
+        setIsPending(false);
+        setError(null);
+        setUser(response.user)
+      }
+    } catch (error) {
+      console.log(error.message);
+      if (!isCancelled) {
+        setIsPending(false);
+        setError(error.message);
+      }
+    }
+  };
+  //Cleanup function in case the async function it's active while the component it's unmounted
+  useEffect(() => {
+    return () => {
+      setIsCancelled(true);
+    };
+  }, []);
+
+  return { error, signup, isPending, user };
 };

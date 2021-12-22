@@ -42,6 +42,9 @@ export const searchBarStyle = css`
     background-color: #f1f1f1;
     width: 70%;
     height: 100%;
+    @media (max-width: 760px){
+      display:none;
+    }
   }
   form:hover {
     border: 1px solid #0079d3;
@@ -60,7 +63,7 @@ export const searchBarStyle = css`
   }
   input {
     border: none;
-    width: 90%;
+    width: 80%;
     height: 100%;
     outline: 0;
     border-radius: 2px;

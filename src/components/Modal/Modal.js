@@ -6,8 +6,8 @@ import {
   InputsSign,
   Divider,
 } from "../Modal/Modal.style";
-import LoginForm from "../login/LoginForm";
-import SignupForm from "../signup/SignupForm";
+import LoginForm from "../Login/LoginForm";
+import SignupForm from "../Signup/SignupForm";
 
 export default function Modal({ setShowModal, action }) {
   return (

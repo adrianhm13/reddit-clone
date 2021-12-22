@@ -1,4 +1,4 @@
-import Navbar from "../../components/navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import Subreddit from "../subreddit/Subreddit";
 
 export default function Home() {

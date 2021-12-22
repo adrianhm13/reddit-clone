@@ -1,24 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 
 // Components
 import { Input } from "../Input/Input";
-import { Button } from "../button/Button";
+import { Button } from "../Button/Button";
 
-export default function SignupForm({setShowModal}) {
+export default function SignupForm({ setShowModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-
-  const { error, signup } = useSignup();
+  const { error, signup, user, isPending } = useSignup();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     signup(email, password, username);
-    if(error === false){
-      setShowModal(false)
-    }
   };
+
+  //Close modal after signup
+  useEffect(() => {
+    if (user) {
+      setShowModal(false);
+    }
+  }, [user]);
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <label>
@@ -46,7 +49,7 @@ export default function SignupForm({setShowModal}) {
         ></Input>
       </label>
       <Button outline w100 mt1>
-        Signup
+        {!isPending ? "Signup" : "Loading"}
       </Button>
       {error && <p>{error}</p>}
     </form>

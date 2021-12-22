@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
+
 // Components
 import { Input } from "../Input/Input";
-import { Button } from "../button/Button";
+import { Button } from "../Button/Button";
 
 export default function LoginForm({ setShowModal }) {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ export default function LoginForm({ setShowModal }) {
     login(email, password);
   };
 
-  //Close modal after loggin in
+  //Close modal after login
   useEffect(() => {
     if (user) {
       setShowModal(false);
@@ -36,6 +37,7 @@ export default function LoginForm({ setShowModal }) {
           type="password"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
+          autocomplete="current-password"
         ></Input>
       </label>
       <Button outline w100 mt1>

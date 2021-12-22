@@ -1,13 +1,17 @@
 /** @jsxImportSource @emotion/react */
+import { useLogout } from "../../hooks/useLogout";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
-import Login from "../login/Login";
-import Signup from "../signup/Signup"
+//Components
+import Login from "../Login/Login";
+import Signup from "../Signup/Signup";
 import { navbarStyle, searchBarStyle, userButtons, logo } from "./Navbar.style";
-
-// Components
-import { Button } from "../button/Button";
+import ProfileBadge from "../ProfileBadge/ProfileBadge";
 
 export default function Navbar() {
+  const { user } = useAuthContext();
+  const { logout } = useLogout();
+
   return (
     <header css={navbarStyle}>
       <div css={logo}>
@@ -29,8 +33,17 @@ export default function Navbar() {
         </form>
       </div>
       <div css={userButtons}>
-        <Login />
-        <Signup />
+        {!user && (
+          <>
+            <Login />
+            <Signup />
+          </>
+        )}
+        {user && (
+          <>
+          <ProfileBadge user={user} logout={logout}/>
+          </>
+        )}
       </div>
     </header>
   );

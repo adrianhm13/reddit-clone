@@ -2,7 +2,7 @@ import { useState } from "react";
 
 //Components
 
-import { Button } from "../button/Button";
+import { Button } from "../Button/Button";
 import Modal from "../Modal/Modal";
 
 export default function Login() {

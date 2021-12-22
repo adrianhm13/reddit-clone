@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useAuthContext } from "./hooks/useAuthContext";
 
 // Style
 import { appStyle } from "./App.style";
@@ -10,21 +11,25 @@ import Subreddit from "./pages/subreddit/Subreddit";
 import Post from "./pages/post/Post";
 
 function App() {
+  const { authIsReady } = useAuthContext();
+
   return (
     <div css={appStyle}>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/r/:id">
-            <Home />
-          </Route>
-          <Route path="/comments/:idpost">
-            <Post />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      {authIsReady && (
+        <BrowserRouter>
+          <Switch>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/r/:id">
+              <Subreddit />
+            </Route>
+            <Route path="/comments/:idpost">
+              <Post />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      )}
     </div>
   );
 }

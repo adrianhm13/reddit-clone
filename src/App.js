@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
-
 // Style
 import { appStyle } from "./App.style";
 
@@ -10,6 +9,8 @@ import Home from "./pages/home/Home";
 import Subreddit from "./pages/subreddit/Subreddit";
 import Post from "./pages/post/Post";
 
+//Components
+import Navbar from "./components/Navbar/Navbar";
 function App() {
   const { authIsReady } = useAuthContext();
 
@@ -17,14 +18,15 @@ function App() {
     <div css={appStyle}>
       {authIsReady && (
         <BrowserRouter>
+          <Navbar />
           <Switch>
-            <Route path="/home">
+            <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/r/:id">
+            <Route exact path="/r/:id">
               <Subreddit />
             </Route>
-            <Route path="/comments/:idpost">
+            <Route exact path="/comments/:idpost">
               <Post />
             </Route>
           </Switch>

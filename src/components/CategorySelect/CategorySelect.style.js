@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 
 export const CategorySelectContainer = styled.button`
-
   position: relative;
-  display: inline-flex;
+  display: flex;
   width: 15%;
   justify-content: space-between;
   margin-left: 1rem;
@@ -13,7 +12,7 @@ export const CategorySelectContainer = styled.button`
   transition: 0.7s;
   width: 80%;
   padding: 0.3rem;
-  cursor: pointer ;./??????????????????????4
+  cursor: pointer;
   @media (max-width: 524px) {
     width: 75%;
     padding: 1rem;
@@ -45,13 +44,18 @@ export const CategoryDropdown = styled.div`
   top: 30px;
   z-index: 1;
   width: 100%;
-  max-height: 250px;
+  height: 450px;
   background-color: white;
   box-shadow: 0px 18px 16px 0px rgba(0, 0, 0, 0.1);
   overflow: auto;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `;
 export const Category = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
@@ -64,6 +68,14 @@ export const Category = styled.div`
     height: 24px;
   }
   &:hover {
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
   }
-`
+`;
+export const Divider = styled.hr`
+  padding: 0;
+  margin: 0;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+`;

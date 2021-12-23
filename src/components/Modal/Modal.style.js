@@ -17,6 +17,7 @@ export const ModalMain = styled.div`
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   animation: ${fadeIn} 0.7s forwards;
+  z-index: 50;
 `;
 export const ModalContent = styled.div`
   position: fixed;
@@ -27,7 +28,7 @@ export const ModalContent = styled.div`
   left: 50%;
   display: flex;
   transform: translate(-50%, -50%);
-  & > * > i {
+  & > div > i {
     position: absolute;
     top: 10px;
     right: 10px;

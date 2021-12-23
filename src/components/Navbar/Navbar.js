@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useCollection } from "../../hooks/useCollection";
 
 //Components
 import Login from "../Login/Login";
@@ -8,20 +9,25 @@ import Signup from "../Signup/Signup";
 import { navbarStyle, searchBarStyle, userButtons, logo } from "./Navbar.style";
 import ProfileBadge from "../ProfileBadge/ProfileBadge";
 import CategorySelect from "../CategorySelect/CategorySelect";
+import { Link } from "react-router-dom";
 
-export default function Navbar({categories}) {
+export default function Navbar() {
+  // const [isHome, setIsHome] = useState(true);
+
   const { user } = useAuthContext();
   const { logout } = useLogout();
 
-
+  const { documents: categories } = useCollection("category");
   return (
     <header css={navbarStyle}>
       <div css={logo}>
-        <img
-          src="https://blog.lastpass.com/wp-content/uploads/sites/20/2020/04/reddit-logo-2.jpg"
-          alt="logo"
-        ></img>
-        <h2>RedFake</h2>
+        <Link to="/">
+          <img
+            src="https://blog.lastpass.com/wp-content/uploads/sites/20/2020/04/reddit-logo-2.jpg"
+            alt="logo"
+          ></img>
+          <h2>RedFake</h2>
+        </Link>
         {user && (
           <>
             <CategorySelect categories={categories}/>

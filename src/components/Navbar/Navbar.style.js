@@ -24,18 +24,25 @@ export const logo = css`
   cursor: default;
   margin-left: 1rem;
   flex-grow: 1;
-  & h2 {
+  & > a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: black;
+  }
+  & a > h2 { 
     margin: 0;
     font-size: 1rem;
     font-family: "Lexend Zetta", sans-serif;
   }
-  img {
+  & a > img {
     width: 32px;
     height: 32px;
   }
   @media (max-width: 524px) {
     gap: 0.1rem;
-    & > h2 {
+    & a > h2 {
       display: none;
     }
   }
@@ -46,7 +53,6 @@ export const searchBarStyle = css`
   width: auto;
   height: auto;
   form {
-
     margin-right: auto;
     border-radius: 2px;
     border: 1px solid #e3e3e3;

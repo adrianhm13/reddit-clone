@@ -12,12 +12,12 @@ import CategorySelect from "../CategorySelect/CategorySelect";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  // const [isHome, setIsHome] = useState(true);
 
   const { user } = useAuthContext();
   const { logout } = useLogout();
 
   const { documents: categories } = useCollection("category");
+  
   return (
     <header css={navbarStyle}>
       <div css={logo}>

@@ -38,7 +38,6 @@ export default function ModalCommunity({ setShowModal }) {
       pic: "https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png",
       createdBy: { uid: user.uid, username: user.displayName },
     });
-    await console.log(response)
     setShowModal(false)
   };
 

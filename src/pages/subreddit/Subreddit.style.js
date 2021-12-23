@@ -1,7 +1,42 @@
 import styled from "@emotion/styled";
 
+
+export const HeaderCommunity = styled.div`
+  width: 100%;
+  background-color: #84a9c0;
+  min-height: 5rem;
+  margin-top: 2rem;
+`
+export const HeaderCommunityDetails = styled.div`
+  width: 100%;
+  background-color: whitesmoke;
+  min-height: 5rem;
+  position: sticky;
+  top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-bottom: 1px solid #e6e6e9;
+  & > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  & > div > img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  & > button {
+    align-self: center;
+  }
+  @media (max-width: 524px) {
+    top: 3.5rem;
+  }
+`
 export const Container = styled.div`
-  padding-top: 5rem;
+  padding-top: 1rem;
   margin: auto;
   width: 100%;
 `;

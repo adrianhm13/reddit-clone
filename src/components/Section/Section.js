@@ -1,19 +1,29 @@
-import { SectionMain, SectionVotes, Votes, SectionPost, PostCreation } from "./Section.style";
+import Votes from "../Votes/Votes";
+import {
+  SectionMain,
+  SectionVotes,
+  SectionPost,
+  PostCreation,
+} from "./Section.style";
 
-export default function Section() {
-    return (
-        <SectionMain>
-            <SectionVotes>
-                <Votes><p>Up</p><p>Down</p></Votes>
-            </SectionVotes>
-            <SectionPost>
-                <PostCreation>
-                    <img src ="https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png" alt="test"></img>
-                    <h6>r/Example</h6>
-                    <p>Published by lalala</p>
-                    <p>9 hours ago</p>
-                </PostCreation>
-            </SectionPost>
-        </SectionMain>
-    )
+export default function Section({ post, categoryId }) {
+
+
+  return (
+    <SectionMain>
+      {post && (
+        <>
+          <SectionVotes>
+            <Votes categoryId={categoryId} post={post}/>
+          </SectionVotes>
+          <SectionPost>
+            <PostCreation>
+              <p>Published by {post.createdBy.username}</p>
+              <p>9 hours ago</p>
+            </PostCreation>
+          </SectionPost>
+        </>
+      )}
+    </SectionMain>
+  );
 }

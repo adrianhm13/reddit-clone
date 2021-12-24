@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useCategory } from "../../hooks/useCategory";
 import { usePosts } from "../../hooks/usePosts";
+import { useAuthContext } from "../../hooks/useAuthContext";
 //Style
 import { Button } from "../../components/Button/Button";
 import Section from "../../components/Section/Section";
@@ -18,16 +19,19 @@ export default function Subreddit() {
   //useLocation to get the category id and fetch the category
   const location = useLocation();
   const { id } = location.state;
+  
+  //Get user for interactivity
+  const {user} = useAuthContext()
 
   //Fetch related info to the subreddit
   const { document: category } = useCategory("category", id);
 
   //Fetch posts related to the subreddit
   const { documents: posts } = usePosts(id);
-  console.log("posts", posts);
 
-  console.log("Subreddit open");
-  console.log(category);
+  
+  console.log('Subreddit rerendered')
+
   return (
     <>
       {category && (
@@ -43,7 +47,7 @@ export default function Subreddit() {
           <Container>
             <ContainerContent>
               <ContainerSection>
-                {posts && posts.map((post) => <Section post={post}/>)}
+                {posts && posts.map((post) => <Section post={post} user={user} categoryId={category.id}/>)}
               </ContainerSection>
               <ContainerAside>
                 <AsideCategory category={category}></AsideCategory>

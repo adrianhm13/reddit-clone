@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { useAuthContext } from "../../hooks/useAuthContext";
-import { useFirestore } from "../../hooks/useFirestore";
-import { Button } from "../Button/Button";
-import { Input } from "../Input/Input";
+import {useAuthContext } from '../../../hooks/useAuthContext'
+import { useFirestore } from "../../../hooks/useFirestore";
+import { Button } from "../../Button/Button";
+import { Input } from "../../Input/Input";
 import {
   ModalMain,
   ModalTitle,

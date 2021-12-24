@@ -23,14 +23,19 @@ export const AsideTitle = styled.div`
 `;
 export const AsideContent = styled.div`
   padding: 1rem;
+  
   & > h5 {
     font-size: 1rem;
     margin: 0;
     font-weight: 300;
   }
-
+  & > p > i {
+    color: #5829a7;
+    font-size: 1.5rem;
+    margin-right: 0.3rem;
+  }
   & > p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 100;
     margin: 0;
   }
@@ -41,5 +46,9 @@ export const AsideContent = styled.div`
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  & > button {
+    margin-top: 1rem;
+    width: 100%;
   }
 `;

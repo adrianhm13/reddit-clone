@@ -1,14 +1,23 @@
+import { useFirestore } from "../../hooks/useFirestore";
+import { Button } from "../Button/Button";
 import { AsideContent, AsideMain, AsideTitle } from "./Aside.style";
-
+import { useState } from "react";
+import ModalPost from '../Modals/ModalPost/ModalPost'
 export function AsideHome() {
     return (
         <AsideMain></AsideMain>
     )
 }
 
+
 export function AsideCategory({category}) {
+    const [modalPostShow, setModalPostShow] = useState(false)
     const date = category.createdAt.toDate().toDateString()
-    console.log(date)
+
+    const {addDocument} = useFirestore('category', category.id)
+    const handleClickPublish = () => {
+
+    }
     return(
         <AsideMain>
             <AsideTitle>
@@ -17,8 +26,11 @@ export function AsideCategory({category}) {
             <AsideContent>
                 <h5>We welcome you to {category.title}</h5>
                 <hr/>
-                <p>Created: {date} by: {category.createdBy.username}</p>
+                <p><i class="fas fa-birthday-cake"></i> {date}</p>
+                <Button onClick={() => {setModalPostShow(true)}}>Publish</Button>
+                <hr/>
             </AsideContent>
+            {modalPostShow && <ModalPost setModalPostShow={setModalPostShow} category={category}/>}
         </AsideMain>
     )
 }

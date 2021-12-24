@@ -3,7 +3,7 @@ import { useState } from "react";
 //Components
 
 import { Button } from "../Button/Button";
-import Modal from "../Modal/Modal";
+import ModalSign from "../Modals/ModalSign/ModalSign";
 
 export default function Login() {
   const [showModal, setShowModal] = useState(false);
@@ -20,7 +20,7 @@ export default function Login() {
           Login
         </Button>
       </>
-      <>{showModal && <Modal action="login" setShowModal={setShowModal} />}</>
+      <>{showModal && <ModalSign action="login" setShowModal={setShowModal} />}</>
     </>
   );
 }

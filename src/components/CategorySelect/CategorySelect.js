@@ -6,8 +6,7 @@ import {
   Category,
   Divider,
 } from "./CategorySelect.style";
-import ModalCommunity from "../ModalCommunity/ModalCommunity";
-
+import ModalCommunity from "../Modals/ModalCommunity/ModalCommunity";
 export default function CategorySelect({ categories }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showModal, setShowModal] = useState(false);

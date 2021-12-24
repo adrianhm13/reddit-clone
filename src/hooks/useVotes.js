@@ -1,6 +1,5 @@
-import { useEffect } from "react";
 import { db } from "../firebase/config";
-import { updateDoc, doc, increment, arrayUnion } from "firebase/firestore";
+import { updateDoc, doc, increment, arrayUnion, arrayRemove } from "firebase/firestore";
 
 export const useVotes = (categoryID, postID) => {
   const ref = doc(db, "category", categoryID, "posts", postID);
@@ -24,5 +23,11 @@ export const useVotes = (categoryID, postID) => {
     }
   };
 
-  return { addVote };
+  const removeVote = async (data) => {
+    await updateDoc(ref, {
+      votedUsers: arrayRemove(data)
+    })
+  }
+
+  return { addVote, removeVote };
 };

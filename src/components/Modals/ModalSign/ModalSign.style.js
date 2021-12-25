@@ -23,7 +23,6 @@ export const ModalContent = styled.div`
   position: fixed;
   background: white;
   width: 40%;
-  height: 45%;
   top: 50%;
   left: 50%;
   display: flex;
@@ -49,6 +48,9 @@ export const ModalContent = styled.div`
 export const ModalLeftContent = styled.div`
   width: 25%;
   overflow: hidden;
+  & > img {
+    height: 100%;
+  };
 `;
 export const ModalRightContent = styled.div`
   padding: 1rem;

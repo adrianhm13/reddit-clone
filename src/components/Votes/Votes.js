@@ -4,6 +4,7 @@ import { useVotes } from "../../hooks/useVotes";
 
 //Style
 import { VotesContainer } from "./Votes.styles";
+
 export default function Votes({ categoryId, post }) {
   const [userVote, setUserVote] = useState("");
   const [isVoted, setIsVoted] = useState(false);
@@ -11,7 +12,7 @@ export default function Votes({ categoryId, post }) {
   //Get user ID for votes
   const { user } = useAuthContext();
 
-  const { addVote, removeVote } = useVotes(categoryId, post.id);
+  const { addVote, removeVote, cancelVote} = useVotes(categoryId, post.id);
 
   //useEffect to update votes states, if its logout, can't vote
   useEffect(() => {
@@ -25,6 +26,9 @@ export default function Votes({ categoryId, post }) {
       if (userHasVoted) {
         setIsVoted(true);
         setUserVote(userHasVoted.typeVote);
+      }else{
+        setIsVoted(false);
+        setUserVote('')
       }
     };
 
@@ -41,11 +45,13 @@ export default function Votes({ categoryId, post }) {
     if (user) {
       if (!isVoted) {
         typeVote === "upvote"
-          ? addVote({ typeVote: "upvote", uid: user.uid })
-          : addVote({ typeVote: "downvote", uid: user.uid });
+          ? addVote({ typeVote: "upvote", uid: user.uid },1)
+          : addVote({ typeVote: "downvote", uid: user.uid },1);
       } else if (isVoted && userVote !== typeVote) {
-        addVote({ typeVote: typeVote, uid: user.uid });
+        addVote({ typeVote: typeVote, uid: user.uid }, 2);
         removeVote({ typeVote: userVote, uid: user.uid });
+      } else if (isVoted && userVote === typeVote) {
+        cancelVote({typeVote: userVote, uid: user.uid})
       }
     }
   };

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const ProfileBadgeContainer = styled.button`
+export const ProfileBadgeContainer = styled.div`
   display: flex;
   position: relative;
   width: 50%;

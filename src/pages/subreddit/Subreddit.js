@@ -3,14 +3,12 @@ import { useCategory } from "../../hooks/useCategory";
 import { usePosts } from "../../hooks/usePosts";
 import { useAuthContext } from "../../hooks/useAuthContext";
 //Style
-import { Button } from "../../components/Button/Button";
-import Section from "../../components/Section/Section";
 import { AsideCategory } from "../../components/Aside/Aside";
+import ContainerSection from "./ContainerSection/ContainerSection";
 import {
   Container,
   ContainerAside,
   ContainerContent,
-  ContainerSection,
 } from "./Subreddit.style";
 import HeaderCommunity from "./HeaderCommunity/HeaderCommunity";
 
@@ -37,12 +35,7 @@ export default function Subreddit() {
           <HeaderCommunity category={category}/>
           <Container>
             <ContainerContent>
-              <ContainerSection>
-                {posts &&
-                  posts.map((post) => (
-                    <Section key={post.id} post={post} user={user} categoryId={category.id} />
-                  ))}
-              </ContainerSection>
+              <ContainerSection posts={posts} user={user} category={category}/>
               <ContainerAside>
                 <AsideCategory category={category}></AsideCategory>
               </ContainerAside>

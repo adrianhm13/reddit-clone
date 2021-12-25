@@ -30,6 +30,7 @@ export default function ModalPost({ setModalPostShow, category }) {
       votes: 0,
       pic: "https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png",
       createdBy: { uid: user.uid, username: user.displayName },
+      votedUsers: []
     });
     console.log(response);
     setModalPostShow(false);

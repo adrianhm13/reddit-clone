@@ -26,26 +26,3 @@ export const SectionPost = styled.div`
   display: flex;
   flex-direction: column;
 `;
-export const PostCreation = styled.div`
-  width: 100%;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.5rem;
-  & img {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-  }
-  & h6 {
-    margin: 0;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-  & p {
-    margin: 0;
-    font-size: 0.8rem;
-    font-weight: 200;
-  }
-`;

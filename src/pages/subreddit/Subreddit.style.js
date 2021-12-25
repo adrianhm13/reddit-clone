@@ -21,15 +21,7 @@ export const ContainerContent = styled.div`
     width: 85%;
   }
 `;
-export const ContainerSection = styled.div`
-  width: 65%;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  @media (max-width: 760px) {
-    width: 90%;
-  }
-`;
+
 
 export const ContainerAside = styled.div`
   width: 30%;

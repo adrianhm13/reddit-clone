@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   CategorySelectContainer,
   CategoryDropdown,
@@ -11,6 +11,7 @@ export default function CategorySelect({ categories }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [categorySelected, setCategorySelected] = useState("Home");
+  let divFocus = useRef(null);
 
   const location = useLocation();
 
@@ -21,10 +22,30 @@ export default function CategorySelect({ categories }) {
       : setCategorySelected(location.pathname);
   }, [location.pathname]);
 
+  const handleClickDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  //Run hook for outside click
+  useEffect(() => {
+    function closeModal(event) {
+      if (divFocus.current && !divFocus.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", closeModal);
+    return () => {
+      document.removeEventListener("mousedown", closeModal);
+    };
+  }, []);
+
   return (
     <>
       {showModal && <ModalCommunity setShowModal={setShowModal} />}
-      <CategorySelectContainer onClick={() => setShowDropdown(!showDropdown)}>
+      <CategorySelectContainer
+        ref={divFocus}
+        onClick={() => handleClickDropdown()}
+      >
         <h3>{categorySelected}</h3>
         <i className="fas fa-chevron-down"></i>
         {showDropdown && (

@@ -14,7 +14,7 @@ export default function PostCreatedInfo({ post }) {
 
   return (
     <Title>
-      <p>Published by {post.createdBy.username}</p>
+      <p>Published by u/{post.createdBy.username}</p>
       {createdAt && <p>{createdAt}</p>}
     </Title>
   );

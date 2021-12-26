@@ -84,6 +84,10 @@ export const InputContainer = styled.div`
     margin: 0;
     padding: 0;
   }
+  & form > span {
+    font-size: 0.8rem;
+    color: #CDCDCD;
+  }
 `;
 export const ButtonsContainer = styled.div`
   display: flex;

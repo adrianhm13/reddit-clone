@@ -4,7 +4,8 @@ export const SectionMain = styled.section`
   width: 100%;
   display: flex;
   flex-direction: row;
-  min-height: 450px;
+  min-height: 250px;
+  max-height: 400px;
   background-color: whitesmoke;
   border-radius: 4px;
   border: 1px solid #eeeeee;

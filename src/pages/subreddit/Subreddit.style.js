@@ -18,7 +18,7 @@ export const ContainerContent = styled.div`
     justify-content: center;
   }
   @media (max-width: 1024px) {
-    width: 85%;
+    width: 100%;
   }
 `;
 

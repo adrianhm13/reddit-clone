@@ -3,7 +3,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useVotes } from "../../hooks/useVotes";
 
 //Style
-import { VotesContainer } from "./Votes.styles";
+import { VotesContainer} from "./Votes.styles";
 
 export default function Votes({ categoryId, post }) {
   const [userVote, setUserVote] = useState("");

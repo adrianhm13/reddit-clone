@@ -56,9 +56,11 @@ export default function ModalPost({ setModalPostShow, category }) {
                   setTitle(e.target.value);
                 }}
                 required
+                maxLength={50}
                 value={title}
               />
             </label>
+            <span>50 characters max.</span>
             <label>
               <Textarea
                 placeholder={"Text"}

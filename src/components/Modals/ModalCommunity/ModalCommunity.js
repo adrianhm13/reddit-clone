@@ -61,6 +61,7 @@ export default function ModalCommunity({ setShowModal }) {
                 onChange={(e) => {
                   setCommunityName(e.target.value);
                 }}
+                maxLength={15}
                 required
                 value={communityName}
               />

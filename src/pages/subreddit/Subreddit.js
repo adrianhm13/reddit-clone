@@ -1,22 +1,20 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useCategory } from "../../hooks/useCategory";
 import { usePosts } from "../../hooks/usePosts";
 import { useAuthContext } from "../../hooks/useAuthContext";
 //Style
 import { AsideCategory } from "../../components/Aside/Aside";
 import ContainerSection from "./ContainerSection/ContainerSection";
-import {
-  Container,
-  ContainerAside,
-  ContainerContent,
-} from "./Subreddit.style";
+import { Container, ContainerAside, ContainerContent } from "./Subreddit.style";
 import HeaderCommunity from "./HeaderCommunity/HeaderCommunity";
 
 export default function Subreddit() {
   //useLocation to get the category id and fetch the category
   const location = useLocation();
   const { id } = location.state;
-
+  console.log(id)
+  //To do : replace location for useParams and make a query with the title of the subreddit
+  // const {id} = useParams();
   //Get user for interactivity
   const { user } = useAuthContext();
 
@@ -32,10 +30,10 @@ export default function Subreddit() {
     <>
       {category && (
         <>
-          <HeaderCommunity category={category}/>
+          <HeaderCommunity category={category} />
           <Container>
             <ContainerContent>
-              <ContainerSection posts={posts} user={user} category={category}/>
+              <ContainerSection posts={posts} user={user} category={category} />
               <ContainerAside>
                 <AsideCategory category={category}></AsideCategory>
               </ContainerAside>

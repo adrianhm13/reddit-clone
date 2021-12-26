@@ -18,6 +18,7 @@ export const HeaderCommunityDetails = styled.div`
   justify-content: space-evenly;
   border-bottom: 1px solid #e6e6e9;
   transition: all .15s ease-in-out;
+  z-index: 5;
 
   & > div {
     display: flex;
@@ -76,16 +77,32 @@ export const headerScroll = css`
   top: 2.5rem;
   & > div {
     margin: 0;
+    @media (max-width: 475px) {
+      width: 100%;
+      padding-right: 0.8rem;
+    }
   }
   & > div > img {
     position: absolute;
     transform: translateY(30px);
     width: 32px;
     height: 32px;
+    @media (max-width: 475px) {
+      position: relative;
+      transform: translateY(0);
+      left: 15px;
+      width: 32px;
+      height: 32px;
+    }
   }
   & > div > div {
-      height: 2.5rem;
+      height: 3rem;
+      top: 0;
     font-size: 15px;
+    @media (max-width: 475px) {
+      width: 100%;
+      padding: 0 0.8rem 0 0.8rem;
+    }
   }
   & > div > div > h2 {
       margin: 0;
@@ -93,5 +110,11 @@ export const headerScroll = css`
   & > div > div > button {
     min-height: 27px;
     padding: 0 0.5rem 0 0.5rem;
+    @media (max-width: 524px) {
+    top: 3.5rem;
+  }
+  }
+  @media (max-width: 524px) {
+    top: 3.9rem;
   }
 `;

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-
 export const VotesContainer = styled.div`
 margin-top: 1rem;
   padding: 0.2rem;

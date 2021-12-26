@@ -1,23 +1,32 @@
 import { useState, useEffect } from "react";
 import { db } from "../firebase/config";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  query,
+  where,
+  collection,
+  getDocs,
+} from "firebase/firestore";
 
-export const useCategory = (c, id) => {
+export const useCategory = (c, title) => {
   const [document, setDocument] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const docRef = doc(db, c, id);
+    const collectionRef = collection(db, c);
+    const q = query(collectionRef, where("title", "==", title));
 
-    getDoc(docRef)
+    getDocs(q)
       .then((snapshot) => {
-        setDocument(snapshot.data());
-        console.log(snapshot.data());
+        let result;
+        snapshot.docs.forEach((doc) => {
+          result = { ...doc.data() };
+        });
+        setDocument(result);
       })
       .catch((error) => {
         setError(error);
       });
-  }, [c, id]);
+  }, [c, title]);
 
   return { document, error };
 };

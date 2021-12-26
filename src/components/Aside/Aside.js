@@ -14,10 +14,6 @@ export function AsideCategory({category}) {
     const [modalPostShow, setModalPostShow] = useState(false)
     const date = category.createdAt.toDate().toDateString()
 
-    const {addDocument} = useFirestore('category', category.id)
-    const handleClickPublish = () => {
-
-    }
     return(
         <AsideMain>
             <AsideTitle>
@@ -26,7 +22,7 @@ export function AsideCategory({category}) {
             <AsideContent>
                 <h5>We welcome you to {category.title}</h5>
                 <hr/>
-                <p><i class="fas fa-birthday-cake"></i> {date}</p>
+                <p><i className="fas fa-birthday-cake"></i> {date}</p>
                 <Button onClick={() => {setModalPostShow(true)}}>Publish</Button>
                 <hr/>
             </AsideContent>

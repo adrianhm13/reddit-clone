@@ -23,7 +23,7 @@ export default function Subreddit() {
     <>
       {category && (
         <>
-          <HeaderCommunity category={category} />
+          <HeaderCommunity category={category} user={user}/>
           <Container>
             <ContainerContent>
               <ContainerSection  user={user} category={category} />

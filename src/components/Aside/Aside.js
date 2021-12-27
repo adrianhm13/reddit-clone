@@ -1,13 +1,7 @@
-import { useFirestore } from "../../hooks/useFirestore";
 import { Button } from "../Button/Button";
 import { AsideContent, AsideMain, AsideTitle } from "./Aside.style";
 import { useState } from "react";
 import ModalPost from '../Modals/ModalPost/ModalPost'
-export function AsideHome() {
-    return (
-        <AsideMain></AsideMain>
-    )
-}
 
 
 export function AsideCategory({category}) {

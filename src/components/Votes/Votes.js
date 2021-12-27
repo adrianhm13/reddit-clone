@@ -16,13 +16,11 @@ export default function Votes({ categoryId, post }) {
 
   //useEffect to update votes states, if its logout, can't vote
   useEffect(() => {
-    console.log("Running useEffect");
 
     const checkUserVoted = () => {
       const userHasVoted = post.votedUsers.find(
         (element) => element.uid === user.uid
       );
-      console.log(userHasVoted);
       if (userHasVoted) {
         setIsVoted(true);
         setUserVote(userHasVoted.typeVote);

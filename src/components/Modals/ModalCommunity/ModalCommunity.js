@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import {useAuthContext } from '../../../hooks/useAuthContext'
+import { useState } from "react";
+import { useAuthContext } from "../../../hooks/useAuthContext";
 import { useFirestore } from "../../../hooks/useFirestore";
 import { Button } from "../../Button/Button";
 import { Input } from "../../Input/Input";
@@ -12,36 +12,25 @@ import {
   ButtonsContainer,
 } from "../ModalCommunity/ModalCommunity.style";
 
-const capitalCase = (str) => {
-  const result = `${str.charAt(0).toUpperCase()}${str.slice(1).toLowerCase()}`;
-  return result;
-};
-
-const urlLowerCase = (str) => {
-  const result = `/r/${str.toLowerCase()}`;
-  return result;
-};
 
 export default function ModalCommunity({ setShowModal }) {
   const [communityName, setCommunityName] = useState("");
 
   const { user } = useAuthContext();
-  const { addDocument, response} = useFirestore("category");
+  const { addDocument } = useFirestore("category");
 
   const handleAddCommunity = async (e) => {
     e.preventDefault();
-    const title = capitalCase(communityName);
-    const url = urlLowerCase(title);
+    const title = (communityName);
+    const url = `/r/${communityName}`;
     await addDocument({
       title,
       url,
       pic: "https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png",
       createdBy: { uid: user.uid, username: user.displayName },
     });
-    setShowModal(false)
+    setShowModal(false);
   };
-
-
 
   return (
     <ModalMain>
@@ -53,7 +42,10 @@ export default function ModalCommunity({ setShowModal }) {
         <Divider />
         <InputContainer>
           <h5>Name</h5>
-          <p>Community names can not be changed later on.</p>
+          <p>
+            Community names can not be changed later on. Only letters and
+            numbers accepted
+          </p>
           <form id="add-community" onSubmit={(e) => handleAddCommunity(e)}>
             <label>
               <Input
@@ -61,9 +53,10 @@ export default function ModalCommunity({ setShowModal }) {
                 onChange={(e) => {
                   setCommunityName(e.target.value);
                 }}
-                maxLength={15}
+                maxLength={25}
                 required
                 value={communityName}
+                pattern="[A-Za-z0-9]+"
               />
             </label>
           </form>

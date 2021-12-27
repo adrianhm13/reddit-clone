@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { auth, db } from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
 import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
@@ -31,7 +31,7 @@ export const useSignup = () => {
       await updateProfile(auth.currentUser, {displayName: username})
 
       //Add user to users collection Firebase
-      await addDoc(collection(db, 'users'), {uid: response.user.uid, subscribed: []})
+      await setDoc(doc(db, 'users', response.user.uid), {uid: response.user.uid})
 
       //Dispatch login action
       dispatch({ type: "LOGIN", payload: response.user });

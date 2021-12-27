@@ -42,7 +42,7 @@ export const CategoryDropdown = styled.div`
   position: absolute;
   left: 0;
   top: 30px;
-  z-index: 1;
+  z-index: 25;
   width: 100%;
   height: 450px;
   background-color: white;

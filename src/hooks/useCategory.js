@@ -4,7 +4,7 @@ import {
   query,
   where,
   collection,
-  getDocs,
+  onSnapshot,
 } from "firebase/firestore";
 
 export const useCategory = (c, title) => {
@@ -15,18 +15,31 @@ export const useCategory = (c, title) => {
     const collectionRef = collection(db, c);
     const q = query(collectionRef, where("title", "==", title));
 
-    getDocs(q)
-      .then((snapshot) => {
-        let result;
-        snapshot.docs.forEach((doc) => {
-          result = { ...doc.data() };
-        });
-        setDocument(result);
-      })
-      .catch((error) => {
-        setError(error);
+    const unSubscribe = onSnapshot(q, (snapshot) => {
+      let result;
+      snapshot.docs.forEach((doc) => {
+        result = { ...doc.data() };
       });
+      setDocument(result);
+      setError(null);
+    });
+    return () => {
+      unSubscribe();
+    };
   }, [c, title]);
+
+  //   onSnapshot(q)
+  //   .then((snapshot) => {
+  //     let result;
+  //     snapshot.docs.forEach((doc) => {
+  //       result = { ...doc.data() };
+  //     });
+  //     setDocument(result);
+  //   })
+  //   .catch((error) => {
+  //     setError(error);
+  //   });
+  // }, [c, title]);
 
   return { document, error };
 };

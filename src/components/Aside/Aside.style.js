@@ -51,4 +51,17 @@ export const AsideContent = styled.div`
     margin-top: 1rem;
     width: 100%;
   }
+  & > div {
+    padding: 0.5rem;
+
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  & > div > p{
+    font-size: 0.8rem;
+    margin: 0;
+    color: #adb5bd;
+  }
 `;

@@ -32,21 +32,31 @@ export default function HeaderCommunity({ category, user }) {
 
   //Handle subscribe button
   const handleSubscribe = () => {
-    if (!userIsSubs) {
-      addSubs(user);
-      setUserIsSubs(true);
-    } else {
-      removeSubs(user);
-      setUserIsSubs(false);
+    if(user){
+      if (!userIsSubs) {
+        addSubs(user);
+        setUserIsSubs(true);
+      } else {
+        removeSubs(user);
+        setUserIsSubs(false);
+      }
+    }else{
+      alert('You need to login in order to subscribe to a community')
     }
   };
+
   //Set state if user it's subscribed
   useEffect(() => {
-    const isSubscribed = category.usersSubscribed.some(
-      (uid) => uid === user.uid
-    );
-    isSubscribed ? setUserIsSubs(true) : setUserIsSubs(false);
-  }, [category, user.uid]);
+    if (user) {
+      const isSubscribed = category.usersSubscribed.some((ref) => {
+        console.log(ref)
+        return ref.uid === user.uid
+      });
+      isSubscribed ? setUserIsSubs(true) : setUserIsSubs(false);
+    } else {
+      setUserIsSubs(false);
+    }
+  }, [category, user]);
 
   return (
     <>

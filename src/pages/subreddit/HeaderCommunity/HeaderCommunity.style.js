@@ -36,6 +36,7 @@ export const HeaderCommunityDetails = styled.div`
     }
   }
   & > div > img {
+    border: 3px solid white;
     position: absolute;
     top: -25px;
     left: 0;
@@ -135,3 +136,5 @@ export const headerScroll = css`
     top: 3.9rem;
   }
 `;
+
+

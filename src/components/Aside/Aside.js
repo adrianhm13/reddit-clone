@@ -15,6 +15,7 @@ export function AsideCategory({category}) {
             </AsideTitle>
             <AsideContent>
                 <h5>We welcome you to {category.title}</h5>
+                <div><p>{category.countUsers}</p><p>Members</p></div>
                 <hr/>
                 <p><i className="fas fa-birthday-cake"></i> {date}</p>
                 <Button onClick={() => {setModalPostShow(true)}}>Publish</Button>

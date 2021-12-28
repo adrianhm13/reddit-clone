@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { useCollection } from "../../hooks/useCollection";
 
 //Components
 import Login from "../Login/Login";
@@ -16,7 +15,6 @@ export default function Navbar() {
   const { user } = useAuthContext();
   const { logout } = useLogout();
 
-  const { documents: categories } = useCollection("category");
   
   return (
     <header css={navbarStyle}>
@@ -30,7 +28,7 @@ export default function Navbar() {
         </Link>
         {user && (
           <>
-            <CategorySelect categories={categories}/>
+            <CategorySelect user={user}/>
           </>
         )}
       </div>

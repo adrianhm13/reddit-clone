@@ -1,18 +1,21 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import { useState, useEffect, useRef } from "react";
-import {
-  CategorySelectContainer,
-  CategoryDropdown,
-  Category,
-  Divider,
-} from "./CategorySelect.style";
+import CategoryDropdown from "./CategoryDropdown";
+import { CategorySelectContainer } from "./CategorySelect.style";
+
+//Components
 import ModalCommunity from "../Modals/ModalCommunity/ModalCommunity";
-export default function CategorySelect({ categories }) {
+
+export default function CategorySelect({ user }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [categorySelected, setCategorySelected] = useState("Home");
+
+  //Ref for remove focus in the dropdown
   let divFocus = useRef(null);
 
+  //Location to update the text value of the dropdown
   const location = useLocation();
 
   //Update value of the category selector
@@ -48,28 +51,7 @@ export default function CategorySelect({ categories }) {
       >
         <h3>{categorySelected}</h3>
         <i className="fas fa-chevron-down"></i>
-        {showDropdown && (
-          <CategoryDropdown>
-            <div onClick={() => setShowModal(true)}>
-              <Category>
-                <i className="fas fa-plus"></i>
-                New community
-              </Category>
-            </div>
-            <Divider />
-            {categories.map((category) => (
-              <Link
-                key={category.id}
-                to={{ pathname: category.url, state: { id: category.id } }}
-              >
-                <Category>
-                  <img src={category.pic} alt="subreddit logo"></img>
-                  {category.title}
-                </Category>
-              </Link>
-            ))}
-          </CategoryDropdown>
-        )}
+        {showDropdown && <CategoryDropdown setShowModal={setShowModal} user={user}/>}
       </CategorySelectContainer>
     </>
   );

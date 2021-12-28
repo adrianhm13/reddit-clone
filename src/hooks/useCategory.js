@@ -28,18 +28,6 @@ export const useCategory = (c, title) => {
     };
   }, [c, title]);
 
-  //   onSnapshot(q)
-  //   .then((snapshot) => {
-  //     let result;
-  //     snapshot.docs.forEach((doc) => {
-  //       result = { ...doc.data() };
-  //     });
-  //     setDocument(result);
-  //   })
-  //   .catch((error) => {
-  //     setError(error);
-  //   });
-  // }, [c, title]);
 
   return { document, error };
 };

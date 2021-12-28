@@ -1,28 +1,38 @@
 import { useState, useEffect } from "react";
 import { db } from "../firebase/config";
-import { collection, onSnapshot } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  query,
+  where,
+} from "firebase/firestore";
 
-export const useCollection = (c) => {
+export const useCollection = (c, userCategory) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let ref = collection(db, c);
+    const ref = collection(db, c);
+    if (userCategory.length !== 0) {
+      const q = query(ref, where("id", "in", [...userCategory]));
+      console.log(q);
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        let results = [];
+        console.log("snapshot", snapshot);
+        snapshot.docs.forEach((doc) => {
+          results.push({ ...doc.data(), id: doc.id });
+        });
 
-    const unsubscribe = onSnapshot(ref, (snapshot) => {
-      let results = [];
-
-      snapshot.docs.forEach((doc) => {
-        results.push({ ...doc.data(), id: doc.id });
+        setDocuments(results);
+        setError(null);
       });
 
-      setDocuments(results);
-      setError(null);
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, [c]);
+      return () => {
+        console.log("Unsubscribing dropdown categories");
+        unsubscribe();
+      };
+    }
+  }, [c, userCategory]);
 
   return { documents, error };
 };

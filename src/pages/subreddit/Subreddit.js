@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useCategory } from "../../hooks/useCategory";
 import { useAuthContext } from "../../hooks/useAuthContext";
 //Style
@@ -9,7 +9,7 @@ import HeaderCommunity from "./HeaderCommunity/HeaderCommunity";
 
 export default function Subreddit() {
 
-  //useParams to get the subreddit title and use it as query
+  //useParams to get the subreddit title and use it as query to fetch posts
   const {id} = useParams();
   
   //Get user for interactivity
@@ -27,7 +27,7 @@ export default function Subreddit() {
             <ContainerContent>
               <ContainerSection category={category} />
               <ContainerAside>
-                <AsideCategory category={category}></AsideCategory>
+                <AsideCategory category={category} user={user}></AsideCategory>
               </ContainerAside>
             </ContainerContent>
           </Container>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { auth, db } from "../firebase/config";
 import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
-import { collection, doc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {

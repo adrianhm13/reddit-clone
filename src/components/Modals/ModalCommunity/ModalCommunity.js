@@ -28,6 +28,7 @@ export default function ModalCommunity({ setShowModal }) {
       url,
       pic: "https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png",
       createdBy: { uid: user.uid, username: user.displayName },
+      usersSubscribed: [],
     });
     setShowModal(false);
   };

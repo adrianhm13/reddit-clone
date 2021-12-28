@@ -38,21 +38,7 @@ export const CategorySelectContainer = styled.button`
   }
 `;
 
-export const CategoryDropdown = styled.div`
-  position: absolute;
-  left: 0;
-  top: 30px;
-  z-index: 25;
-  width: 100%;
-  height: 450px;
-  background-color: white;
-  box-shadow: 0px 18px 16px 0px rgba(0, 0, 0, 0.1);
-  overflow: auto;
-  a {
-    text-decoration: none;
-    color: black;
-  }
-`;
+
 export const Category = styled.div`
   display: flex;
   flex: 1;
@@ -62,6 +48,8 @@ export const Category = styled.div`
   font-weight: 200;
   padding: 0.7rem;
   gap: 1rem;
+  animation-name: fade-in;
+  animation-duration: 1s;
   img {
     border-radius: 50%;
     width: 24px;
@@ -69,6 +57,10 @@ export const Category = styled.div`
   }
   &:hover {
     background-color: #f0f0f0;
+  }
+  @keyframes fade-in {
+    from {opacity:0}
+    to{opacity: 1}
   }
 `;
 export const Divider = styled.hr`

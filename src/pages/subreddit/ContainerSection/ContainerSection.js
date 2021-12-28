@@ -8,7 +8,7 @@ import Section from "../../../components/Section/Section";
 import Filters from "./Filters";
 
 
-export default function ContainerSection({category, user }) {
+export default function ContainerSection({category }) {
 
   const [typeFilter, setTypeFilter] = useState('createdAt')
   const [paramFilter, setParamFilter] = useState('desc')

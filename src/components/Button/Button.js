@@ -19,3 +19,21 @@ export const Button = styled.button`
     background-color: ${(props) => (props.outline ? "#ECECEC" : "#0087EC")};
   }
 `;
+
+export const FilterButton = styled(Button)`
+  min-height: 0;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem 0.6rem 0.8rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  background-color: whitesmoke;
+  color: ${(props) => (props.active === props.id ? "#84a9c0" : 'grey')};
+  border-color: whitesmoke;
+  :hover {
+    background-color: #E5E5E5;
+  }
+`;

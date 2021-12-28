@@ -1,6 +1,5 @@
 import { useLocation, useParams } from "react-router-dom";
 import { useCategory } from "../../hooks/useCategory";
-import { usePosts } from "../../hooks/usePosts";
 import { useAuthContext } from "../../hooks/useAuthContext";
 //Style
 import { AsideCategory } from "../../components/Aside/Aside";
@@ -26,7 +25,7 @@ export default function Subreddit() {
           <HeaderCommunity category={category} user={user}/>
           <Container>
             <ContainerContent>
-              <ContainerSection  user={user} category={category} />
+              <ContainerSection category={category} />
               <ContainerAside>
                 <AsideCategory category={category}></AsideCategory>
               </ContainerAside>

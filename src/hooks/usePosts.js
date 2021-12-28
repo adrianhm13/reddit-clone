@@ -8,19 +8,20 @@ export const usePosts = (categoryId, typeFilter, paramFilter) => {
 
   useEffect(() => {
     let ref =  collection(db, "category", categoryId, "posts");
-    console.log('test')
+
     const q = query(ref, orderBy(typeFilter, paramFilter));
+
     const unsubscribe = onSnapshot(q, (snapshot) => {
       let results = [];
-
+      
       snapshot.docs.forEach((doc) => {
         results.push({ ...doc.data(), id: doc.id });
       });
-
       setDocuments(results);
       setError(null);
     });
     return () => {
+      console.log('unsubscribing')
       unsubscribe();
     };
   }, [categoryId, typeFilter, paramFilter]);

@@ -4,6 +4,7 @@ export const FilterContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   background-color: whitesmoke;
   border-radius: 4px;
   border: 1px solid #eeeeee;

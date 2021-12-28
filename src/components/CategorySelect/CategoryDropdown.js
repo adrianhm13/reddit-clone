@@ -1,6 +1,5 @@
 import { useCollection } from "../../hooks/useCollection";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import { Category, Divider } from "./CategorySelect.style";
 import { useCategorySubscribed } from "../../hooks/useCategorySubscribed";
 import { CategoryDrop } from "./CategoryDrowpdown.style";

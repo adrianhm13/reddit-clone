@@ -17,7 +17,7 @@ export function AsideCategory({category, user}) {
                 <h2>About the community</h2>
             </AsideTitle>
             <AsideContent>
-                <h5>We welcome you to {category.title}</h5>
+                <h5>{category.description}</h5>
                 <div><p>{category.countUsers ? category.countUsers : 0}</p><p>Members</p></div>
                 <hr/>
                 <p><i className="fas fa-birthday-cake"></i> {date}</p>

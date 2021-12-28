@@ -30,14 +30,14 @@ export const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   border-radius: 5px;
 
-  @media (max-width: 480px) {
+  @media (max-width: 760px) {
     width: 90%;
   }
-  @media (max-width: 770px) {
-    width: 90%;
+  @media (min-width: 761px) {
+    width: 50%;
   }
-  @media (max-width: 1024px) {
-    width: 55%;
+  @media (min-width: 1200px) {
+    width: 25%;
   }
 `;
 export const ModalTitle = styled.div`
@@ -72,22 +72,26 @@ export const InputContainer = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
-
-  & > h5 {
+  gap: 1rem;
+  & > form > div {
+    margin-top: 1rem;
+  }
+  & > form > div > h5 {
     color: #5e5e5e;
     margin: 0;
     padding: 0;
   }
-  & > p {
+  & > form > div > p {
     font-weight: 100;
     font-size: 0.8rem;
     margin: 0;
     padding: 0;
   }
-  & form > span {
+  & > form > div > span {
     font-size: 0.8rem;
-    color: #CDCDCD;
+    color: #cdcdcd;
   }
+
 `;
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -96,6 +100,6 @@ export const ButtonsContainer = styled.div`
   gap: 1rem;
   width: 100%;
   padding: 1rem;
-  background-color: #D6D6D6;
+  background-color: #d6d6d6;
   border-radius: 0 0 5px 5px;
 `;

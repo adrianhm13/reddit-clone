@@ -23,7 +23,7 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/r/:id">
+            <Route exact sensitive={true} path="/r/:id">
               <Subreddit />
             </Route>
             <Route exact path="/comments/:idpost">

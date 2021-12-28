@@ -11,7 +11,7 @@ export default function Subreddit() {
 
   //useParams to get the subreddit title and use it as query to fetch posts
   const {id} = useParams();
-  
+  console.log(id)
   //Get user for interactivity
   const { user } = useAuthContext();
 

@@ -66,7 +66,7 @@ export default function HeaderCommunity({ category, user }) {
           <img src={category.pic} alt="community icon" />
           <div>
             <CommunityHeaderText>
-              <h2>Description category</h2>
+              <h2>{category.subtitle}</h2>
               <h5>/r/{category.title}</h5>
             </CommunityHeaderText>
             {userIsSubs && (

@@ -13,7 +13,7 @@ export function AsideCategory({category, user}) {
     }
     return(
         <AsideMain>
-            <AsideTitle>
+            <AsideTitle color={category.color}>
                 <h2>About the community</h2>
             </AsideTitle>
             <AsideContent>

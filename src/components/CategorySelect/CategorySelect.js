@@ -51,7 +51,9 @@ export default function CategorySelect({ user }) {
       >
         <h3>{categorySelected}</h3>
         <i className="fas fa-chevron-down"></i>
-        {showDropdown && <CategoryDropdown setShowModal={setShowModal} user={user}/>}
+        {showDropdown && (
+          <CategoryDropdown setShowModal={setShowModal} user={user} />
+        )}
       </CategorySelectContainer>
     </>
   );

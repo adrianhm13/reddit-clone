@@ -10,7 +10,7 @@ export const AsideMain = styled.section`
 `;
 export const AsideTitle = styled.div`
   width: 100%;
-  background-color: #84a9c0;
+  background-color: ${props => props.color};
   color: white;
   border-radius: 4px 4px 0 0;
   padding: 1rem;

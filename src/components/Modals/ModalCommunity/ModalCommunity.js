@@ -33,6 +33,7 @@ export default function ModalCommunity({ setShowModal }) {
       title,
       subtitle,
       description,
+      color: '#2e4756',
       url,
       pic: "https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png",
       createdBy: { uid: user.uid, username: user.displayName },

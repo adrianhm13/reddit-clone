@@ -49,7 +49,7 @@ export const Category = styled.div`
   padding: 0.7rem;
   gap: 1rem;
   animation-name: fade-in;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   img {
     border-radius: 50%;
     width: 24px;

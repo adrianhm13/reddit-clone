@@ -17,7 +17,7 @@ export default function ContainerSection({category }) {
 
   return (
     <Feed>
-    <Filters onTypeFilter={setTypeFilter} onParamFilter={setParamFilter}/>
+    <Filters onTypeFilter={setTypeFilter} onParamFilter={setParamFilter} color={category.color}/>
     <Sections>
       {posts &&
         posts.map((post) => (

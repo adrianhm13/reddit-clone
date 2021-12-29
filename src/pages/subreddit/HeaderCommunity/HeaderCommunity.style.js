@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 export const HeaderCommunityBg = styled.div`
   width: 100%;
-  background-color: #84a9c0;
+  background-color: ${props => props.color};
   min-height: 5rem;
   margin-top: 2rem;
 `;

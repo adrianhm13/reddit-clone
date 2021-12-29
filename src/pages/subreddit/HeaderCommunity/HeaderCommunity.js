@@ -60,7 +60,7 @@ export default function HeaderCommunity({ category, user }) {
 
   return (
     <>
-      <HeaderCommunityBg />
+      <HeaderCommunityBg color={category.color}/>
       <HeaderCommunityDetails css={headerClass}>
         <div>
           <img src={category.pic} alt="community icon" />

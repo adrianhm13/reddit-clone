@@ -6,7 +6,7 @@ import { ReactComponent as MostCommentIcon } from "../../../../src/assets/icons/
 import { ReactComponent as MostVotesIcon } from "../../../../src/assets/icons/most-votes.svg";
 import { ReactComponent as Icon } from "../../../../src/assets/icons/newest.svg";
 
-export default function Filters({ onTypeFilter, onParamFilter }) {
+export default function Filters({ onTypeFilter, onParamFilter, color }) {
   const [isActive, setIsActive] = useState(1);
 
   const handleClick = (typeFilter, paramFilter) => {
@@ -19,6 +19,7 @@ export default function Filters({ onTypeFilter, onParamFilter }) {
       <FilterButton
         active={isActive}
         id={1}
+        color={color}
         onClick={() => {
           handleClick("createdAt", "desc");
           setIsActive(1);
@@ -31,6 +32,7 @@ export default function Filters({ onTypeFilter, onParamFilter }) {
       <FilterButton
         active={isActive}
         id={2}
+        color={color}
         onClick={() => {
           handleClick("votes", "desc");
           setIsActive(2);
@@ -42,6 +44,7 @@ export default function Filters({ onTypeFilter, onParamFilter }) {
       <FilterButton
         active={isActive}
         id={3}
+        color={color}
         onClick={() => {
           handleClick("comments", "desc");
           setIsActive(3);

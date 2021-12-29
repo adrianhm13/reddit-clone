@@ -24,7 +24,7 @@ export default function CategoryDropdown({ setShowModal, user }) {
         categories.map((category) => (
           <Link
             key={category.id}
-            to={{ pathname: category.url, state: { id: category.id } }}
+            to={{ pathname: category.url}}
           >
             <Category>
               <img src={category.pic} alt="subreddit logo"></img>

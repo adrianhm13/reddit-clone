@@ -31,7 +31,7 @@ export const FilterButton = styled(Button)`
   font-weight: 600;
   font-size: 0.8rem;
   background-color: whitesmoke;
-  color: ${(props) => (props.active === props.id ? "#84a9c0" : 'grey')};
+  color: ${(props) => (props.active === props.id ? props.color : 'grey')};
   border-color: whitesmoke;
   :hover {
     background-color: #E5E5E5;

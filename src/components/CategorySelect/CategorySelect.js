@@ -7,6 +7,8 @@ import { CategorySelectContainer } from "./CategorySelect.style";
 //Components
 import ModalCommunity from "../Modals/ModalCommunity/ModalCommunity";
 
+const transformLocation = (str) => str.slice(0, str.lastIndexOf("/"));
+
 export default function CategorySelect({ user }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -20,9 +22,13 @@ export default function CategorySelect({ user }) {
 
   //Update value of the category selector
   useEffect(() => {
-    location.pathname === "/"
-      ? setCategorySelected("Home")
-      : setCategorySelected(location.pathname);
+    if (location.pathname === "/") {
+      setCategorySelected("Home");
+    } else if (location.pathname.length > 20) {
+      setCategorySelected(transformLocation(location.pathname));
+    } else {
+      setCategorySelected(location.pathname);
+    }
   }, [location.pathname]);
 
   const handleClickDropdown = () => {

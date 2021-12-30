@@ -7,6 +7,7 @@ export const Title = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
+  color: #757575;
   & img {
     border-radius: 50%;
     width: 20px;

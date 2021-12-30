@@ -49,7 +49,6 @@ export default function HeaderCommunity({ category, user }) {
   useEffect(() => {
     if (user) {
       const isSubscribed = category.usersSubscribed.some((ref) => {
-        console.log(ref)
         return ref.uid === user.uid
       });
       isSubscribed ? setUserIsSubs(true) : setUserIsSubs(false);

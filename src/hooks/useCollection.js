@@ -15,10 +15,8 @@ export const useCollection = (c, userCategory) => {
     const ref = collection(db, c);
     if (userCategory.length !== 0) {
       const q = query(ref, where("id", "in", [...userCategory]));
-      console.log(q);
       const unsubscribe = onSnapshot(q, (snapshot) => {
         let results = [];
-        console.log("snapshot", snapshot);
         snapshot.docs.forEach((doc) => {
           results.push({ ...doc.data(), id: doc.id });
         });

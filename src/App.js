@@ -11,6 +11,7 @@ import Post from "./pages/post/Post";
 
 //Components
 import Navbar from "./components/Navbar/Navbar";
+
 function App() {
   const { authIsReady } = useAuthContext();
 
@@ -23,10 +24,11 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact sensitive={true} path="/r/:id">
+            <Route exact path="/r/:id">
               <Subreddit />
             </Route>
-            <Route exact path="/comments/:idpost">
+            <Route exact path={`/r/:id/:postId`}>
+              AAAAAAAa
               <Post />
             </Route>
           </Switch>
@@ -36,14 +38,4 @@ function App() {
   );
 }
 
-/*
-pages:
-
-Home
-Login as modal
-Signup as modal
-Subreddit
-Specific post of a subreddit
-
-*/
 export default App;

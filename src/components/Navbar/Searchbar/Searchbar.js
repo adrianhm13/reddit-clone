@@ -40,7 +40,7 @@ export default function Searchbar() {
     setQuery(e.target.value);
     let q = e.target.value;
     const newFilter = documents.filter((doc) => {
-      return doc.title.includes(q);
+      return doc.title.toLowerCase().includes(q.toLowerCase());
     });
     if (q !== "") {
       console.log("There is query so filter");

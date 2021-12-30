@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
+export const SectionMain = styled(Link)`
+  text-decoration: none;
 
-export const SectionMain = styled.section`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -10,10 +12,11 @@ export const SectionMain = styled.section`
   border-radius: 4px;
   border: 1px solid #eeeeee;
   cursor: pointer;
+  transition: 0.2s;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   &:hover {
-    border: 1px solid #d7d7d7;
+    border: 1px solid #8e9aaf;
   }
 `;
 export const SectionVotes = styled.div`

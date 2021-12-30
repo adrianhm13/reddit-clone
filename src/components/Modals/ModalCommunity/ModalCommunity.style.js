@@ -87,7 +87,7 @@ export const InputContainer = styled.div`
     margin: 0;
     padding: 0;
   }
-  & > form > div > span {
+  & > form > span {
     font-size: 0.8rem;
     color: #cdcdcd;
   }

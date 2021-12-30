@@ -13,7 +13,7 @@ export default function Section({  post, categoryId }) {
   const { url } = useRouteMatch();
 
   return (
-    <SectionMain to={`${url}/${post.id}`} onClick={() => console.log("lala")}>
+    <SectionMain to={`${url}/${post.id}`} media={post.media}>
       {post && (
         <>
           <SectionVotes>
@@ -22,7 +22,7 @@ export default function Section({  post, categoryId }) {
           <SectionPost>
             <PostCreatedInfo post={post} />
             <TitlePost title={post.title} />
-            <PostContent content={post.desc} />
+            <PostContent content={post.desc} media={post.media}feed/>
           </SectionPost>
         </>
       )}

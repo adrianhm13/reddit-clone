@@ -10,7 +10,7 @@ export const Feed = styled.div`
     width: 90%;
   }
 `
-export const Sections = styled.div`
+export const Sections = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2rem;

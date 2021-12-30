@@ -2,12 +2,11 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 export const SectionMain = styled(Link)`
   text-decoration: none;
-
   width: 100%;
   display: flex;
   flex-direction: row;
   min-height: 250px;
-  max-height: 400px;
+  max-height: ${props => props.media ? '600px' : '400px'};
   background-color: whitesmoke;
   border-radius: 4px;
   border: 1px solid #eeeeee;

@@ -1,11 +1,20 @@
-import { Content } from "./PostContent.style";
+import { ContentIndividual, ContentFeed } from "./PostContent.style";
 
-export default function PostContent({ content }) {
+export default function PostContent({ content, feed, media }) {
   return (
     <div>
-        <Content>
+      {feed && (
+        <ContentFeed media={media}>
+          {media && <img src={media} alt={`article`} />}
           <p>{content}</p>
-        </Content>
+        </ContentFeed>
+      )}
+      {!feed && (
+        <ContentIndividual>
+          {media && <img src={media} alt={`article`} />}
+          <p>{content}</p>
+        </ContentIndividual>
+      )}
     </div>
   );
 }

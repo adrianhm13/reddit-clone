@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory} from "react-router-dom";
 import { useFindCategory } from "../../hooks/useFindCategory";
-import { useDocument } from "../../hooks/useDocument";
-import { doc, getDoc, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../firebase/config";
+
+//Components
 import {
   SectionVotes,
   SectionPost,
@@ -12,7 +13,6 @@ import Votes from "../../components/Votes/Votes";
 import PostCreatedInfo from "../../components/Section/SubComponents/PostCreatedInfo";
 import TitlePost from "../../components/Section/SubComponents/TitlePost";
 import PostContent from "../../components/Section/SubComponents/PostContent";
-
 import {
   PostModal,
   PostContainer,
@@ -21,13 +21,17 @@ import {
 } from "./Post.style";
 
 export default function Post() {
-  const [unsub, setUnsub] = useState(null);
   const [post, setPost] = useState(false);
+
+  //Get id's to fetch the proper data
   const { id: title, postId } = useParams();
 
+  //Get category id to fetch the document
   const { categoryId } = useFindCategory(title);
 
-  // const {document: post} = useDocument(categoryId, postId)
+  //History to close the single post and come back to subreddit feed
+  const history = useHistory();
+
   useEffect(() => {
     let unsub;
     if (categoryId) {
@@ -39,10 +43,15 @@ export default function Post() {
     return () => unsub;
   }, [categoryId, postId]);
 
+  //Close click
+  const clickCloseHandler = () => {
+    history.goBack()
+  }
+
   return (
     <PostModal>
       <PostContainer>
-        <CloseContainer>
+        <CloseContainer onClick={() => {clickCloseHandler()}}>
           <i className="fas fa-times"></i>
           <span>Close Post</span>
         </CloseContainer>
@@ -54,7 +63,7 @@ export default function Post() {
             <SectionPost>
               <PostCreatedInfo post={post} />
               <TitlePost title={post.title} />
-              <PostContent content={post.desc} />
+              <PostContent content={post.desc} media={post.media}/>
             </SectionPost>
           </IndividualPost>
         )}

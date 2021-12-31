@@ -8,17 +8,17 @@ import { db } from "../../firebase/config";
 import {
   SectionVotes,
   SectionPost,
-} from "../../components/Section/Section.style";
+} from "../../components/PostFeed/PostFeed.styled";
 import Votes from "../../components/Votes/Votes";
-import PostCreatedInfo from "../../components/Section/SubComponents/PostCreatedInfo";
-import TitlePost from "../../components/Section/SubComponents/TitlePost";
-import PostContent from "../../components/Section/SubComponents/PostContent";
+import PostCreatedInfo from "../../components/PostFeed/SubComponents/PostCreatedInfo";
+import TitlePost from "../../components/PostFeed/SubComponents/TitlePost";
+import PostContent from "../../components/PostFeed/SubComponents/PostContent";
 import {
   PostModal,
   PostContainer,
   CloseContainer,
   IndividualPost,
-} from "./Post.style";
+} from "./Post.styled";
 
 export default function Post() {
   const [post, setPost] = useState(false);

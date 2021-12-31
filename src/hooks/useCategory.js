@@ -7,27 +7,27 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 
-export const useCategory = (c, title) => {
-  const [document, setDocument] = useState(null);
+export const useCategory = (title) => {
+  const [subreddit, setSubreddit] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const collectionRef = collection(db, c);
+    const collectionRef = collection(db, "category");
     const q = query(collectionRef, where("title", "==", title));
 
-    const unSubscribe = onSnapshot(q, (snapshot) => {
+    const unsubscribe = onSnapshot(q, (snapshot) => {
       let result;
       snapshot.docs.forEach((doc) => {
         result = { ...doc.data() };
       });
-      setDocument(result);
+      setSubreddit(result);
       setError(null);
     });
     return () => {
-      unSubscribe();
+      unsubscribe();
     };
-  }, [c, title]);
+  }, [title]);
 
 
-  return { document, error };
+  return { subreddit, error };
 };

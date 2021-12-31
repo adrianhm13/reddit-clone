@@ -24,11 +24,10 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/r/:id">
+            <Route exact path="/r/:subredditId">
               <Subreddit />
             </Route>
-            <Route exact path={`/r/:id/:postId`}>
-              AAAAAAAa
+            <Route exact path={`/r/:subredditId/:postId`}>
               <Post />
             </Route>
           </Switch>

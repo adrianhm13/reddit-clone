@@ -1,4 +1,4 @@
-import { ContentIndividual, ContentFeed } from "./PostContent.style";
+import { ContentIndividual, ContentFeed } from "./PostContent.styled";
 
 export default function PostContent({ content, feed, media }) {
   return (

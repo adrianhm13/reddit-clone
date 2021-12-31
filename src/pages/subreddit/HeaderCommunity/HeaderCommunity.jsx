@@ -5,16 +5,16 @@ import {
   HeaderCommunityBg,
   HeaderCommunityDetails,
   headerScroll,
-} from "./HeaderCommunity.style";
+} from "./HeaderCommunity.styled";
 import { Button } from "../../../components/Button/Button";
 import { useEffect, useState } from "react";
 import { useSubs } from "../../../hooks/useSubs";
 
-export default function HeaderCommunity({ category, user }) {
+export default function HeaderCommunity({ subreddit, user }) {
   const [headerClass, setHeaderClass] = useState("");
   const [userIsSubs, setUserIsSubs] = useState(false);
 
-  const { addSubs, removeSubs } = useSubs(category.id);
+  const { addSubs, removeSubs } = useSubs(subreddit.id);
 
   // Detect the scroll and change header class
   useEffect(() => {
@@ -48,25 +48,25 @@ export default function HeaderCommunity({ category, user }) {
   //Set state if user it's subscribed
   useEffect(() => {
     if (user) {
-      const isSubscribed = category.usersSubscribed.some((ref) => {
+      const isSubscribed = subreddit.usersSubscribed.some((ref) => {
         return ref.uid === user.uid
       });
       isSubscribed ? setUserIsSubs(true) : setUserIsSubs(false);
     } else {
       setUserIsSubs(false);
     }
-  }, [category, user]);
+  }, [subreddit, user]);
 
   return (
     <>
-      <HeaderCommunityBg color={category.color}/>
+      <HeaderCommunityBg color={subreddit.color}/>
       <HeaderCommunityDetails css={headerClass}>
         <div>
-          <img src={category.pic} alt="community icon" />
+          <img src={subreddit.pic} alt="community icon" />
           <div>
             <CommunityHeaderText>
-              <h2>{category.subtitle}</h2>
-              <h5>/r/{category.title}</h5>
+              <h2>{subreddit.subtitle}</h2>
+              <h5>/r/{subreddit.title}</h5>
             </CommunityHeaderText>
             {userIsSubs && (
               <Button

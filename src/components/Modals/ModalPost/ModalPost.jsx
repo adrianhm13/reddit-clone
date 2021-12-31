@@ -1,53 +1,44 @@
 import { useState } from "react";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { useFirestore } from "../../../hooks/useFirestore";
+
+//Components
 import { Button } from "../../Button/Button";
 import { Input } from "../../Input/Input";
 import { Textarea } from "../../Input/Textarea";
-import {
-  ModalMain,
-  ModalTitle,
-  ModalContent,
-  InputContainer,
-  Divider,
-  ButtonsContainer,
-} from "../ModalCommunity/ModalCommunity.style";
+import * as Styled from "../ModalCommunity/ModalCommunity.styled";
 
-export default function ModalPost({ setModalPostShow, category }) {
+export default function ModalPost({ setModal, subreddit }) {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
 
   const { user } = useAuthContext();
-  const { addDocument, response } = useFirestore("category", category.id);
+  const { addDocument } = useFirestore(subreddit.id);
 
   const handleAddPost = async (e) => {
     e.preventDefault();
     await addDocument({
       title,
       desc,
-      category: {id: category.id, name: category.title},
+      subreddit: { id: subreddit.id, name: subreddit.title },
       comments: 0,
       votes: 0,
       pic: "https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png",
       createdBy: { uid: user.uid, username: user.displayName },
-      votedUsers: []
+      votedUsers: [],
     });
-    console.log(response);
-    setModalPostShow(false);
+    setModal(false);
   };
 
   return (
-    <ModalMain>
-      <ModalContent>
-        <ModalTitle>
-          <h3>Create a new post in {category.title}</h3>
-          <i
-            className="fas fa-times"
-            onClick={() => setModalPostShow(false)}
-          ></i>
-        </ModalTitle>
-        <Divider />
-        <InputContainer>
+    <Styled.ModalMain>
+      <Styled.ModalContent>
+        <Styled.ModalTitle>
+          <h3>Create a new post in {subreddit.title}</h3>
+          <i className="fas fa-times" onClick={() => setModal(false)}></i>
+        </Styled.ModalTitle>
+        <Styled.Divider />
+        <Styled.InputContainer>
           <form id="add-post" onSubmit={(e) => handleAddPost(e)}>
             <label>
               <Input
@@ -72,16 +63,16 @@ export default function ModalPost({ setModalPostShow, category }) {
               />
             </label>
           </form>
-        </InputContainer>
-        <ButtonsContainer>
-          <Button outline onClick={() => setModalPostShow(false)}>
+        </Styled.InputContainer>
+        <Styled.ButtonsContainer>
+          <Button outline onClick={() => setModal(false)}>
             Cancel
           </Button>
           <Button form="add-post" type="submit">
             Add Post
           </Button>
-        </ButtonsContainer>
-      </ModalContent>
-    </ModalMain>
+        </Styled.ButtonsContainer>
+      </Styled.ModalContent>
+    </Styled.ModalMain>
   );
 }

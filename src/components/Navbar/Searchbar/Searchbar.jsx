@@ -4,7 +4,7 @@ import {
   SearchContainer,
   SearchResults,
   IndividualResult,
-} from "./Searchbar.style";
+} from "./Searchbar.styled";
 
 export default function Searchbar() {
   const [query, setQuery] = useState("");

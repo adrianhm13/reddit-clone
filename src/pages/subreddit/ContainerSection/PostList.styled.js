@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-
 export const Feed = styled.div`
   width: 65%;
   display: flex;
@@ -10,7 +9,7 @@ export const Feed = styled.div`
     width: 90%;
   }
 `
-export const Sections = styled.section`
+export const PostList = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2rem;

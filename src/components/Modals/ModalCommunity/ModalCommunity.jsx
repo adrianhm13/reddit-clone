@@ -4,18 +4,11 @@ import { useFirestore } from "../../../hooks/useFirestore";
 import { Button } from "../../Button/Button";
 import { Input } from "../../Input/Input";
 import { Textarea } from "../../Input/Textarea";
-import {
-  ModalMain,
-  ModalTitle,
-  ModalContent,
-  InputContainer,
-  Divider,
-  ButtonsContainer,
-} from "../ModalCommunity/ModalCommunity.style";
+import * as Styled from "./ModalCommunity.styled";
 
 const toLowerCase = (str) => {
-  return str.toLowerCase() 
-}
+  return str.toLowerCase();
+};
 
 export default function ModalCommunity({ setShowModal }) {
   const [communityName, setCommunityName] = useState("");
@@ -33,7 +26,7 @@ export default function ModalCommunity({ setShowModal }) {
       title,
       subtitle,
       description,
-      color: '#2e4756',
+      color: "#2e4756",
       url,
       pic: "https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png",
       createdBy: { uid: user.uid, username: user.displayName },
@@ -43,21 +36,20 @@ export default function ModalCommunity({ setShowModal }) {
   };
 
   return (
-    <ModalMain>
-      <ModalContent>
-        <ModalTitle>
+    <Styled.ModalMain>
+      <Styled.ModalContent>
+        <Styled.ModalTitle>
           <h3>Create a new community</h3>
           <i className="fas fa-times" onClick={() => setShowModal(false)}></i>
-        </ModalTitle>
-        <Divider />
-        <InputContainer>
+        </Styled.ModalTitle>
+        <Styled.Divider />
+        <Styled.InputContainer>
           <form id="add-community" onSubmit={(e) => handleAddCommunity(e)}>
             <div>
-              <h5>Name</h5>
-              <p>
-                Community names can not be changed later on. Only letters and
-                numbers accepted
-              </p>
+              <InputDescription
+                title="Name"
+                subtitle="Community names can not be changed later on. Only letters and numbers accepted"
+              />
               <label>
                 <Input
                   placeholder={"/r/"}
@@ -72,11 +64,11 @@ export default function ModalCommunity({ setShowModal }) {
               </label>
             </div>
             <div>
-              <h5>Community Subtitle</h5>
-              <p>
-                Short subtitle for the community heading, for example: beautiful
-                pictures
-              </p>
+              <InputDescription
+                title="Community Subtitle"
+                subtitle="Short subtitle for the community heading, for example: beautiful
+                pictures"
+              />
               <label>
                 <Input
                   placeholder={"Subtitle"}
@@ -90,11 +82,11 @@ export default function ModalCommunity({ setShowModal }) {
               </label>
             </div>
             <div>
-              <h5>Community Description</h5>
-              <p>
-                Description for the community, for example: place where fans of
-                beautiful pictures gather and share things!
-              </p>
+              <InputDescription
+                title="Community Description"
+                subtitle="Description for the community, for example: place where fans of
+                beautiful pictures gather and share things!"
+              />
               <label>
                 <Textarea
                   placeholder={"Description"}
@@ -102,23 +94,32 @@ export default function ModalCommunity({ setShowModal }) {
                     setDescription(e.target.value);
                   }}
                   maxLength={100}
-                  style={{minHeight: '10vh'}}
+                  style={{ minHeight: "10vh" }}
                   required
                   value={description}
                 ></Textarea>
               </label>
             </div>
           </form>
-        </InputContainer>
-        <ButtonsContainer>
+        </Styled.InputContainer>
+        <Styled.ButtonsContainer>
           <Button outline onClick={() => setShowModal(false)}>
             Cancel
           </Button>
           <Button form="add-community" type="submit">
             Add Community
           </Button>
-        </ButtonsContainer>
-      </ModalContent>
-    </ModalMain>
+        </Styled.ButtonsContainer>
+      </Styled.ModalContent>
+    </Styled.ModalMain>
   );
+
+  function InputDescription({ title, subtitle }) {
+    return (
+      <>
+        <h5>{title}</h5>
+        <p>{subtitle}</p>
+      </>
+    );
+  }
 }

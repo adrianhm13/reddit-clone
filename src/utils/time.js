@@ -1,4 +1,4 @@
-export const timeAgo = (prevDate) => {
+export const time = (prevDate) => {
     const diff = Number(new Date()) - prevDate;
     const minute = 60 * 1000;
     const hour = minute * 60;

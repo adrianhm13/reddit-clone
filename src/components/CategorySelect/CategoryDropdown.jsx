@@ -1,8 +1,8 @@
 import { useCollection } from "../../hooks/useCollection";
 import { Link } from "react-router-dom";
-import { Category, Divider } from "./CategorySelect.style";
+import { Category, Divider } from "./CategorySelect.styled";
 import { useCategorySubscribed } from "../../hooks/useCategorySubscribed";
-import { CategoryDrop } from "./CategoryDrowpdown.style";
+import { CategoryDrop } from "./CategoryDrowpdown.styled";
 
 export default function CategoryDropdown({ setShowModal, user }) {
   //Fetch user to get the id's categories which the user it's subscribed

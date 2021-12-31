@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 //Components
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
-import { navbarStyle, userButtons, logo } from "./Navbar.style";
+import { navbarStyle, userButtons, logo } from "./Navbar.styled";
 import ProfileBadge from "../ProfileBadge/ProfileBadge";
 import CategorySelect from "../CategorySelect/CategorySelect";
 import Searchbar from "./Searchbar/Searchbar";

@@ -8,27 +8,18 @@ export const AsideMain = styled.section`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 `;
-export const AsideTitle = styled.div`
+export const AsideTitle = styled.h2`
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
   width: 100%;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   color: white;
   border-radius: 4px 4px 0 0;
-  padding: 1rem;
-  & > h2 {
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-    font-weight: 400;
-  }
+  padding: 1rem 0.5rem;
 `;
 export const AsideContent = styled.div`
   padding: 1rem;
-  
-  & > h5 {
-    font-size: 1rem;
-    margin: 0;
-    font-weight: 300;
-  }
   & > p > i {
     color: #5829a7;
     font-size: 1.5rem;
@@ -53,13 +44,12 @@ export const AsideContent = styled.div`
   }
   & > div {
     padding: 0.5rem;
-
     margin-top: 1rem;
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
   }
-  & > div > p{
+  & > div > p {
     font-size: 0.8rem;
     margin: 0;
     color: #adb5bd;

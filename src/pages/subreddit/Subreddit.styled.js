@@ -4,7 +4,18 @@ import styled from "@emotion/styled";
 export const Container = styled.div`
   padding-top: 1rem;
   margin: auto;
-  width: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+  @media (max-width: 760px) {
+    width: 90%;
+    justify-content: center;
+  }
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerContent = styled.div`

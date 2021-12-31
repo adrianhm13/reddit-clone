@@ -5,7 +5,7 @@ import {
     ModalContent,
     InputsSign,
     Divider,
-  } from "./ModalSign.style";
+  } from "./ModalSign.styled";
   import LoginForm from "../../Login/LoginForm";
   import SignupForm from "../../Signup/SignupForm";
   

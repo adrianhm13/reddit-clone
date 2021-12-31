@@ -1,15 +1,13 @@
 import { useRouteMatch } from "react-router-dom";
 
-
 //Components
 import Votes from "../Votes/Votes";
 import TitlePost from "./SubComponents/TitlePost";
-import { SectionMain, SectionVotes, SectionPost } from "./Section.style";
+import { SectionMain, SectionVotes, SectionPost } from "./PostFeed.styled";
 import PostCreatedInfo from "./SubComponents/PostCreatedInfo";
 import PostContent from "./SubComponents/PostContent";
 
-export default function Section({  post, categoryId }) {
-
+export default function PostFeed({ post, categoryId }) {
   const { url } = useRouteMatch();
 
   return (
@@ -22,7 +20,7 @@ export default function Section({  post, categoryId }) {
           <SectionPost>
             <PostCreatedInfo post={post} />
             <TitlePost title={post.title} />
-            <PostContent content={post.desc} media={post.media}feed/>
+            <PostContent content={post.desc} media={post.media} feed />
           </SectionPost>
         </>
       )}

@@ -46,16 +46,16 @@ const firestoreReducer = (state, action) => {
   }
 };
 
-export const useFirestore = (c, idCategory) => {
+export const useFirestore = (subredditId) => {
   const [response, dispatch] = useReducer(firestoreReducer, initialState);
   const [isCancelled, setIsCancelled] = useState(false);
 
   //Collection reference
-  let ref = collection(db, c);
+  let ref = collection(db, 'category');
 
   //Ref for the category for new posts
-  if(idCategory){
-    ref = collection(db, c, idCategory, 'posts')
+  if(subredditId){
+    ref = collection(db, 'category', subredditId, 'posts')
   }
 
   //Dispatch if it's not cancelled

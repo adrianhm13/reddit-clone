@@ -1,4 +1,4 @@
-import { Title } from "./TitlePost.style";
+import { Title } from "./TitlePost.styled";
 
 export default function TitlePost({ title }) {
   return (

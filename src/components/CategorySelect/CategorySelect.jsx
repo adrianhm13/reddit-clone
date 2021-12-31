@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 import { useState, useEffect, useRef } from "react";
 import CategoryDropdown from "./CategoryDropdown";
-import { CategorySelectContainer } from "./CategorySelect.style";
+import { CategorySelectContainer } from "./CategorySelect.styled";
 
 //Components
 import ModalCommunity from "../Modals/ModalCommunity/ModalCommunity";

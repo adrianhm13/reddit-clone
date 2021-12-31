@@ -1,10 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useSearch } from "../../../hooks/useSearch";
-import {
-  SearchContainer,
-  SearchResults,
-  IndividualResult,
-} from "./Searchbar.styled";
+import * as Styled from "./style";
 
 export default function Searchbar() {
   const [query, setQuery] = useState("");
@@ -12,7 +8,7 @@ export default function Searchbar() {
   const [showSearchContainer, setShowSearchContainer] = useState(false);
 
   //Ref for remove focus in the search results
-  let inputFocus = useRef(null);
+  const inputFocus = useRef(null);
 
   const { documents, searchCategory } = useSearch();
 
@@ -57,41 +53,46 @@ export default function Searchbar() {
   };
 
   return (
-    <SearchContainer>
+    <Styled.SearchContainer>
       <form>
         <label>
           <i className="fas fa-search"></i>
           <input
-            onClick={(e) => {
-              handleClick();
-            }}
+            onClick={() => handleClick()}
             onChange={(e) => handleChange(e)}
             type="search"
             value={query}
             placeholder="Search something of your interest"
-          ></input>
+          />
         </label>
       </form>
       {showSearchContainer && (
-        <SearchResults ref={inputFocus}>
+        <Styled.SearchResults ref={inputFocus}>
           {filteredDocs &&
             filteredDocs.map((item, index) => (
               <IndividualResult
                 key={index}
-                to={{ pathname: item.url }}
-                onClick={() => handleClickResult()}
-              >
-                <div>
-                  <img src={item.pic} alt="logo community" />
-                </div>
-                <div>
-                  <h3>{item.title}</h3>
-                  <h5>{item.countUsers} members</h5>
-                </div>
-              </IndividualResult>
+                handleClickResult={handleClickResult}
+                item={item}
+              />
             ))}
-        </SearchResults>
+        </Styled.SearchResults>
       )}
-    </SearchContainer>
+    </Styled.SearchContainer>
+  );
+}
+
+function IndividualResult({ handleClickResult, item }) {
+  return (
+    <Styled.ResultContainer
+      to={{ pathname: item.url }}
+      onClick={() => handleClickResult()}
+    >
+      <img src={item.pic} alt="logo community" />
+      <Styled.ItemDescription>
+        <h3>{item.title}</h3>
+        <h5>{item.countUsers} members</h5>
+      </Styled.ItemDescription>
+    </Styled.ResultContainer>
   );
 }

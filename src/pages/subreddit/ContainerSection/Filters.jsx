@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { FilterButton } from "../../../components/Button/Button";
+import { FilterButton } from "../../../components/Button/style";
 import { FilterContainer } from "./Filters.styled";
 import { ReactComponent as MostCommentIcon } from "../../../../src/assets/icons/most-comments.svg";
 import { ReactComponent as MostVotesIcon } from "../../../../src/assets/icons/most-votes.svg";

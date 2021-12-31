@@ -6,7 +6,7 @@ import {
   HeaderCommunityDetails,
   headerScroll,
 } from "./HeaderCommunity.styled";
-import { Button } from "../../../components/Button/Button";
+import { Button } from "../../../components/Button/style";
 import { useEffect, useState } from "react";
 import { useSubs } from "../../../hooks/useSubs";
 

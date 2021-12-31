@@ -1,6 +1,7 @@
-import { css } from "@emotion/react";
+import { css} from "@emotion/react";
+import styled from "@emotion/styled";
 
-export const navbarStyle = css`
+export const Header = styled.header`
   background-color: #ffffff;
   display: flex;
   flex-direction: row;
@@ -16,7 +17,7 @@ export const navbarStyle = css`
     gap: 0.3rem;
   }
 `;
-export const logo = css`
+export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -54,3 +55,11 @@ export const userButtons = css`
   flex-grow: 1;
   margin-right: auto;
 `;
+
+export const SignInContainer = styled.div({
+  display: "flex",
+  justifyContent: "center",
+  gap: "5px",
+  flexGrow: "1",
+  marginRight: "auto",
+});

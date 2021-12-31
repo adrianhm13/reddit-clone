@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { useFirestore } from "../../../hooks/useFirestore";
-import { Button } from "../../Button/Button";
-import { Input } from "../../Input/Input";
-import { Textarea } from "../../Input/Textarea";
-import * as Styled from "./ModalCommunity.styled";
+
+//Components
+import { Button } from "../../Button/style";
+import { Input } from "../../Input/style";
+import { Textarea } from "../../Input/Textarea/style";
+import * as Styled from "./style";
 
 const toLowerCase = (str) => {
   return str.toLowerCase();

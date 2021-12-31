@@ -1,11 +1,10 @@
 import styled from "@emotion/styled";
 
-export const PostModal = styled.div`
+export const Container = styled.div`
   width: 100%;
   min-height: calc(100vh - 40px);
   position: absolute;
   top: 40px;
-  left: 0;
   background-color: #2b2d42;
   z-index: 5;
 `;
@@ -22,19 +21,19 @@ export const PostContainer = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const CloseContainer = styled.div`
+export const ClosePost = styled.button`
   background-color: black;
+  margin: 0;
+  border: none;
   padding: 0.5rem;
   color: white;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  flex-direction: row;
   cursor: pointer;
   :hover {
     color: grey;
+  }
+  & :last-child{
+    margin-left: 0.5rem;
   }
 `;
 
@@ -50,4 +49,16 @@ export const IndividualPost = styled.div`
   border: 1px solid #eeeeee;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+`;
+
+export const SectionVotes = styled.div`
+  min-width: 8%;
+  background-color: #eeeeee;
+  border-radius: 2px 0 0 2px;
+`;
+export const SectionPost = styled.div`
+  width: 93%;
+  border-radius: 0 2px 2px 0;
+  display: flex;
+  flex-direction: column;
 `;

@@ -37,37 +37,3 @@ export const CategorySelectContainer = styled.button`
     margin: 0;
   }
 `;
-
-
-export const Category = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  font-weight: 200;
-  padding: 0.7rem;
-  gap: 1rem;
-  animation-name: fade-in;
-  animation-duration: 1s;
-  img {
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-  }
-  &:hover {
-    background-color: #f0f0f0;
-  }
-  @keyframes fade-in {
-    from {opacity:0}
-    to{opacity: 1}
-  }
-`;
-export const Divider = styled.hr`
-  padding: 0;
-  margin: 0;
-  border: 0;
-  height: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-`;

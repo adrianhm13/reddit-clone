@@ -62,7 +62,7 @@ export const SearchResults = styled.div`
     }
 `;
 
-export const IndividualResult = styled(Link)`
+export const ResultContainer = styled(Link)`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -82,10 +82,6 @@ export const IndividualResult = styled(Link)`
     height: 32px;
     border-radius: 50%;
   }
-  & > div {
-    display: flex;
-    flex-direction: column;
-  }
   & > div > h3 {
     font-size: 1rem;
     margin: 0;
@@ -97,3 +93,7 @@ export const IndividualResult = styled(Link)`
     font-weight: 300;
   }
 `;
+export const ItemDescription = styled.div`
+    display: flex;
+    flex-direction: column;
+`

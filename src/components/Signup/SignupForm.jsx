@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 
 // Components
-import { Input } from "../Input/Input";
-import { Button } from "../Button/Button";
+import { Input } from "../Input/style";
+import { Button } from "../Button/style";
 
 export default function SignupForm({ setShowModal }) {
   const [email, setEmail] = useState("");
@@ -48,7 +48,7 @@ export default function SignupForm({ setShowModal }) {
           required
         ></Input>
       </label>
-      <Button outline w100 mt1>
+      <Button outline width={'100%'} marginT={'1rem'}>
         {!isPending ? "Signup" : "Loading"}
       </Button>
       {error && <p>{error}</p>}

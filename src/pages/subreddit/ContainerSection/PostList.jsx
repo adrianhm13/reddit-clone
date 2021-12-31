@@ -2,7 +2,7 @@ import { useState } from "react";
 import { usePosts } from "../../../hooks/usePosts";
 
 //Components
-import PostFeed from "../../../components/PostFeed/PostFeed";
+import PostFeed from "../../../components/PostFeed";
 import Filters from "./Filters";
 import * as Styled from "./PostList.styled";
 

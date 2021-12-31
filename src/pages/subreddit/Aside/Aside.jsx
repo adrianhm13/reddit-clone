@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 //Components
-import { Button } from "../../../components/Button/Button";
+import { Button } from "../../../components/Button/style";
 import * as Styled from "./Aside.styled";
-import ModalPost from "../../../components/Modals/ModalPost/ModalPost";
+import ModalPost from "../../../components/Modals/ModalPost";
 
 export function AsideCategory({ subreddit, user }) {
   const [modal, setModal] = useState(false);

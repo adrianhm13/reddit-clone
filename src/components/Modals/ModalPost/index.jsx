@@ -3,10 +3,10 @@ import { useAuthContext } from "../../../hooks/useAuthContext";
 import { useFirestore } from "../../../hooks/useFirestore";
 
 //Components
-import { Button } from "../../Button/Button";
-import { Input } from "../../Input/Input";
-import { Textarea } from "../../Input/Textarea";
-import * as Styled from "../ModalCommunity/ModalCommunity.styled";
+import { Button } from "../../Button/style";
+import { Input } from "../../Input/style";
+import { Textarea } from "../../Input/Textarea/style";
+import * as Styled from "../ModalCommunity/style";
 
 export default function ModalPost({ setModal, subreddit }) {
   const [title, setTitle] = useState("");
@@ -35,7 +35,7 @@ export default function ModalPost({ setModal, subreddit }) {
       <Styled.ModalContent>
         <Styled.ModalTitle>
           <h3>Create a new post in {subreddit.title}</h3>
-          <i className="fas fa-times" onClick={() => setModal(false)}></i>
+          <i className="fas fa-times" onClick={() => setModal(false)} />
         </Styled.ModalTitle>
         <Styled.Divider />
         <Styled.InputContainer>
@@ -43,9 +43,7 @@ export default function ModalPost({ setModal, subreddit }) {
             <label>
               <Input
                 placeholder={"Post's Title"}
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                }}
+                onChange={(e) => setTitle(e.target.value)}
                 required
                 maxLength={50}
                 value={title}
@@ -55,9 +53,7 @@ export default function ModalPost({ setModal, subreddit }) {
             <label>
               <Textarea
                 placeholder={"Text"}
-                onChange={(e) => {
-                  setDesc(e.target.value);
-                }}
+                onChange={(e) => setDesc(e.target.value)}
                 required
                 value={desc}
               />

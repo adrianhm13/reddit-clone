@@ -7,7 +7,7 @@ import { appStyle } from "./App.style";
 // Pages
 import Home from "./pages/home/Home";
 import Subreddit from "./pages/subreddit/Subreddit";
-import Post from "./pages/post/Post";
+import Post from "./pages/post";
 
 //Components
 import Navbar from "./components/Navbar/Navbar";

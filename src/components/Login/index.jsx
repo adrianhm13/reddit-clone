@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
 
 // Components
-import { Input } from "../Input/Input";
-import { Button } from "../Button/Button";
+import { Input } from "../Input/style";
+import { Button } from "../Button/style";
 
 export default function LoginForm({ setShowModal }) {
   const [email, setEmail] = useState("");
@@ -40,8 +40,8 @@ export default function LoginForm({ setShowModal }) {
           autocomplete="current-password"
         ></Input>
       </label>
-      <Button outline w100 mt1>
-        Login
+      <Button outline width={"100%"} marginT={"1rem"}>
+        {isPending ? <>Loading</> : <>Login</>}
       </Button>
       {error && <p>Email or password incorrects. Please try again.</p>}
     </form>

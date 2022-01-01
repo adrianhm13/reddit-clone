@@ -39,26 +39,13 @@ export default function ModalPost({ setModal, subreddit }) {
         </Styled.ModalTitle>
         <Styled.Divider />
         <Styled.InputContainer>
-          <form id="add-post" onSubmit={(e) => handleAddPost(e)}>
-            <label>
-              <Input
-                placeholder={"Post's Title"}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-                maxLength={50}
-                value={title}
-              />
-            </label>
-            <span>50 characters max.</span>
-            <label>
-              <Textarea
-                placeholder={"Text"}
-                onChange={(e) => setDesc(e.target.value)}
-                required
-                value={desc}
-              />
-            </label>
-          </form>
+          <FormNewPost
+            title={title}
+            setTitle={setTitle}
+            desc={desc}
+            setDesc={setDesc}
+            handleAddPost={handleAddPost}
+          />
         </Styled.InputContainer>
         <Styled.ButtonsContainer>
           <Button outline onClick={() => setModal(false)}>
@@ -70,5 +57,30 @@ export default function ModalPost({ setModal, subreddit }) {
         </Styled.ButtonsContainer>
       </Styled.ModalContent>
     </Styled.ModalMain>
+  );
+}
+
+function FormNewPost(props) {
+  return (
+    <form id="add-post" onSubmit={(e) => props.handleAddPost(e)}>
+      <label>
+        <Input
+          placeholder={"Post's Title"}
+          onChange={(e) => props.setTitle(e.target.value)}
+          required
+          maxLength={50}
+          value={props.title}
+        />
+      </label>
+      <span>50 characters max.</span>
+      <label>
+        <Textarea
+          placeholder={"Text"}
+          onChange={(e) => props.setDesc(e.target.value)}
+          required
+          value={props.desc}
+        />
+      </label>
+    </form>
   );
 }

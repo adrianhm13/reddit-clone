@@ -54,18 +54,11 @@ export default function Searchbar() {
 
   return (
     <Styled.SearchContainer>
-      <form>
-        <label>
-          <i className="fas fa-search"></i>
-          <input
-            onClick={() => handleClick()}
-            onChange={(e) => handleChange(e)}
-            type="search"
-            value={query}
-            placeholder="Search something of your interest"
-          />
-        </label>
-      </form>
+      <SearchForm
+        query={query}
+        handleClick={handleClick}
+        handleChange={handleChange}
+      />
       {showSearchContainer && (
         <Styled.SearchResults ref={inputFocus}>
           {filteredDocs &&
@@ -94,5 +87,22 @@ function IndividualResult({ handleClickResult, item }) {
         <h5>{item.countUsers} members</h5>
       </Styled.ItemDescription>
     </Styled.ResultContainer>
+  );
+}
+
+function SearchForm({ query, handleClick, handleChange }) {
+  return (
+    <form>
+      <label>
+        <i className="fas fa-search"></i>
+        <input
+          onClick={() => handleClick()}
+          onChange={(e) => handleChange(e)}
+          type="search"
+          value={query}
+          placeholder="Search something of your interest"
+        />
+      </label>
+    </form>
   );
 }

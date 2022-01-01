@@ -1,19 +1,15 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useFindCategory } from "../../hooks/useFindCategory";
-import { doc, onSnapshot } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { db } from "../../firebase/config";
+import { useDocument } from "../../hooks/useDocument";
 
 //Components
 import Votes from "../../components/Votes/Votes";
-import PostCreatedInfo from "../../components/PostFeed/SubComponents/PostCreatedInfo";
-import TitlePost from "../../components/PostFeed/SubComponents/TitlePost";
-import PostContent from "../../components/PostFeed/SubComponents/PostContent";
+import PostCreatedInfo from "../../components/PostFeed/PostCreatedInfo";
+import TitlePost from "../../components/PostFeed/TitlePost";
+import PostContent from "../../components/PostFeed/PostContent";
 import * as Styled from "./style";
 
 export default function Post() {
-  const [post, setPost] = useState(false);
-
   const { id: title, postId } = useParams();
 
   //Get category id to fetch the document
@@ -23,25 +19,12 @@ export default function Post() {
   const history = useHistory();
 
   //Listener to the post from firestore
-  useEffect(() => {
-    let unsub;
-    if (categoryId) {
-      let docRef = doc(db, "category", categoryId, "posts", postId);
-      unsub = onSnapshot(docRef, (doc) => {
-        setPost(doc.data());
-      });
-    }
-    return () => unsub;
-  }, [categoryId, postId]);
-
-  const clickCloseHandler = () => {
-    history.goBack();
-  };
+  const { document: post, error } = useDocument(categoryId, postId);
 
   return (
     <Styled.Container>
       <Styled.PostContainer>
-        <Styled.ClosePost onClick={() => clickCloseHandler()}>
+        <Styled.ClosePost onClick={() => history.goBack()}>
           <i className="fas fa-times" />
           <span>Close Post</span>
         </Styled.ClosePost>
@@ -57,6 +40,7 @@ export default function Post() {
             </Styled.SectionPost>
           </Styled.IndividualPost>
         )}
+        {error && <p>It could not fetch the post</p>}
       </Styled.PostContainer>
     </Styled.Container>
   );

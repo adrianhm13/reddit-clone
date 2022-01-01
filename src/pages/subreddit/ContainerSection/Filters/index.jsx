@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { FilterButton } from "../../../components/Button/style";
-import { FilterContainer } from "./Filters.styled";
-import { ReactComponent as MostCommentIcon } from "../../../../src/assets/icons/most-comments.svg";
-import { ReactComponent as MostVotesIcon } from "../../../../src/assets/icons/most-votes.svg";
-import { ReactComponent as Icon } from "../../../../src/assets/icons/newest.svg";
+import { FilterButton } from "../../../../components/Button/style";
+import { Container } from "./style";
+import { ReactComponent as MostCommentIcon } from "../../../../../src/assets/icons/most-comments.svg";
+import { ReactComponent as MostVotesIcon } from "../../../../../src/assets/icons/most-votes.svg";
+import { ReactComponent as NewestIcon } from "../../../../../src/assets/icons/newest.svg";
 
 export default function Filters({ onTypeFilter, onParamFilter, color }) {
   const [isActive, setIsActive] = useState(2);
@@ -15,7 +15,7 @@ export default function Filters({ onTypeFilter, onParamFilter, color }) {
   };
 
   return (
-    <FilterContainer>
+    <Container>
       <FilterButton
         active={isActive}
         id={1}
@@ -25,7 +25,7 @@ export default function Filters({ onTypeFilter, onParamFilter, color }) {
           setIsActive(1);
         }}
       >
-        <Icon />
+        <NewestIcon />
         <span>Most Recent</span>
       </FilterButton>
 
@@ -53,6 +53,6 @@ export default function Filters({ onTypeFilter, onParamFilter, color }) {
         <MostCommentIcon />
         <span>Most Commented</span>
       </FilterButton>
-    </FilterContainer>
+    </Container>
   );
 }

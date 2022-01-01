@@ -3,10 +3,10 @@ import { useCategory } from "../../hooks/useCategory";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 //Components
-import { AsideCategory } from "./Aside/Aside";
+import { AsideCategory } from "./Aside";
 import ContainerSection from "./ContainerSection/PostList";
 import * as Styled from "./Subreddit.styled";
-import HeaderCommunity from "./HeaderCommunity/HeaderCommunity";
+import HeaderCommunity from "./HeaderCommunity";
 
 export default function Subreddit() {
   const { user } = useAuthContext();
@@ -18,18 +18,16 @@ export default function Subreddit() {
   const { subreddit } = useCategory(subredditId);
 
   return (
-    <>
-      {subreddit && (
-        <>
-          <HeaderCommunity subreddit={subreddit} user={user} />
-          <Styled.Container>
-            <ContainerSection subreddit={subreddit} />
-            <Styled.ContainerAside>
-              <AsideCategory subreddit={subreddit} user={user} />
-            </Styled.ContainerAside>
-          </Styled.Container>
-        </>
-      )}
-    </>
+    subreddit && (
+      <>
+        <HeaderCommunity subreddit={subreddit} user={user} />
+        <Styled.Container>
+          <ContainerSection subreddit={subreddit} />
+          <Styled.ContainerAside>
+            <AsideCategory subreddit={subreddit} user={user} />
+          </Styled.ContainerAside>
+        </Styled.Container>
+      </>
+    )
   );
 }

@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { ProfileBadgeContainer, ProfileDropdown } from "./ProfileBadge.styled";
+
+//Components
+import { ProfileBadgeContainer, ProfileDropdown } from "./style";
 
 export default function ProfileBadge({ user, logout }) {
   const [showDropdown, setShowDropdown] = useState(false);

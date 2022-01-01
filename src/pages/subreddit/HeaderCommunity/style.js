@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 export const HeaderCommunityBg = styled.div`
   width: 100%;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   min-height: 5rem;
   margin-top: 2rem;
 `;
@@ -15,30 +15,31 @@ export const HeaderCommunityDetails = styled.div`
   top: 2rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   border-bottom: 1px solid #e6e6e9;
   border-top: 1px solid #e6e6e9;
   transition: all 0.15s ease-in-out;
   z-index: 1;
-
   & > div {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
     position: relative;
     width: 50%;
-    margin: auto;
-    flex-direction: row;
-    align-items: center;
+    padding-left: 5rem;
     gap: 1rem;
     transition: 1.2s ease-in-out;
-    @media (max-width: 475px) {
+    @media (max-width: 480px) {
+      justify-content: flex-start;
       width: 100%;
-      padding-right: 0.8rem;
+      padding: 0.8rem;
     }
   }
   & > div > img {
     border: 3px solid white;
     position: absolute;
-    top: -25px;
+    top: -15px;
     left: 0;
     width: 72px;
     height: 72px;
@@ -48,27 +49,8 @@ export const HeaderCommunityDetails = styled.div`
       top: 0;
       position: relative;
       left: 15px;
-      width: 32px;
-      height: 32px;
-    }
-  }
-  & > div > div {
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding-left: 5rem;
-    gap: 1rem;
-    justify-content: space-between;
-    transition: 1.2s ease-in-out;
-    @media (max-width: 475px) {
-      width: 100%;
-      padding: 0 0.8rem 0 0.8rem;
-    }
-  }
-  & > div > div > button {
-    @media (max-width: 524px) {
-      padding-right: 1.3rem;
+      width: 72px;
+      height: 72px;
     }
   }
   @media (max-width: 524px) {
@@ -78,10 +60,12 @@ export const HeaderCommunityDetails = styled.div`
 export const CommunityHeaderText = styled.div`
   display: flex;
   flex-direction: column;
-  
   & h2 {
     margin: 0;
     padding: 0;
+    @media (max-width: 1000px) {
+      display: none;
+    }
   }
   & h5 {
     margin: 0;
@@ -89,6 +73,7 @@ export const CommunityHeaderText = styled.div`
   }
 `;
 export const headerScroll = css`
+  padding: 0.5rem;
   min-height: 0.5rem;
   max-height: 3rem;
   top: 2.5rem;
@@ -101,7 +86,7 @@ export const headerScroll = css`
     }
   }
   & > div > img {
-    position: absolute;
+    top: -35px;
     transform: translateY(30px);
     width: 40px;
     height: 40px;
@@ -113,28 +98,10 @@ export const headerScroll = css`
       height: 45px;
     }
   }
-  & > div > div {
-    height: 3rem;
-    top: 0;
-    font-size: 15px;
-    @media (max-width: 475px) {
-      width: 100%;
-      padding: 0 0.8rem 0 0.8rem;
-    }
-  }
-  & > div > div > button {
-    min-height: 27px;
-    padding: 0 0.5rem 0 0.5rem;
-    @media (max-width: 524px) {
-      top: 3.5rem;
-    }
-  }
-  & > div > div > div > h2 {
+  & > div > div > h2 {
     display: none;
   }
   @media (max-width: 524px) {
     top: 3.9rem;
   }
 `;
-
-

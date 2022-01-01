@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useAuthContext } from "./hooks/useAuthContext";
+
 // Style
 import { appStyle } from "./App.style";
 
@@ -10,7 +11,7 @@ import Subreddit from "./pages/subreddit/Subreddit";
 import Post from "./pages/post";
 
 //Components
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar";
 
 function App() {
   const { authIsReady } = useAuthContext();

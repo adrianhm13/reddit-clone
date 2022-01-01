@@ -2,24 +2,24 @@ import { useRouteMatch } from "react-router-dom";
 
 //Components
 import Votes from "../Votes/Votes";
-import TitlePost from "./SubComponents/TitlePost";
-import { SectionMain, SectionVotes, SectionPost } from "./style";
-import PostCreatedInfo from "./SubComponents/PostCreatedInfo";
-import PostContent from "./SubComponents/PostContent";
+import TitlePost from "./TitlePost";
+import * as Styled from "./style";
+import PostCreatedInfo from "./PostCreatedInfo";
+import PostContent from "./PostContent";
 
 export default function PostFeed({ post, categoryId }) {
   const { url } = useRouteMatch();
 
   return (
-    <SectionMain to={`${url}/${post.id}`} media={post.media}>
-      <SectionVotes>
+    <Styled.SectionMain to={`${url}/${post.id}`} media={post.media}>
+      <Styled.SectionVotes>
         <Votes categoryId={categoryId} post={post} />
-      </SectionVotes>
-      <SectionPost>
-        <PostCreatedInfo post={post} />
+      </Styled.SectionVotes>
+      <Styled.SectionPost>
+        <PostCreatedInfo createdAt={post.createdAt} createdBy={post.createdBy} />
         <TitlePost title={post.title} />
         <PostContent content={post.desc} media={post.media} feed />
-      </SectionPost>
-    </SectionMain>
+      </Styled.SectionPost>
+    </Styled.SectionMain>
   );
 }

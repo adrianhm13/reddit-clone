@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const FilterContainer = styled.div`
+export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;

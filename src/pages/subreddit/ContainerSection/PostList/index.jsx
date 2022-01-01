@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { usePosts } from "../../../hooks/usePosts";
+import { usePosts } from "../../../../hooks/usePosts";
 
 //Components
-import PostFeed from "../../../components/PostFeed";
-import Filters from "./Filters";
-import * as Styled from "./PostList.styled";
+import PostFeed from "../../../../components/PostFeed";
+import Filters from "../Filters";
+import * as Styled from "./style";
 
 export default function ContainerSection({ subreddit }) {
   const [typeFilter, setTypeFilter] = useState("votes");

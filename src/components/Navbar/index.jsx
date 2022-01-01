@@ -2,8 +2,8 @@ import { useLogout } from "../../hooks/useLogout";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 //Components
-import * as Styled from "./Navbar.styled";
-import ProfileBadge from "../ProfileBadge/ProfileBadge";
+import * as Styled from "./style";
+import ProfileBadge from "../ProfileBadge";
 import CategorySelect from "./SubredditDropdown/DropdownMenu";
 import Searchbar from "./Searchbar";
 import SignIn from "./SignIn";

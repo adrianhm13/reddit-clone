@@ -2,7 +2,7 @@ import { useState } from "react";
 
 //Components
 import { Button } from "../../../components/Button/style";
-import * as Styled from "./Aside.styled";
+import * as Styled from "./style";
 import ModalPost from "../../../components/Modals/ModalPost";
 
 export function AsideCategory({ subreddit, user }) {

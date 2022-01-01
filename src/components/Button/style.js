@@ -12,7 +12,6 @@ export const Button = styled.button(
     transition: "0.7s",
     "&:hover": {
       backgroundColor: "#016FC1",
-      color: "white",
     },
   },
   (props) => ({

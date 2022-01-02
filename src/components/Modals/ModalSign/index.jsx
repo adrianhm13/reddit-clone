@@ -1,6 +1,6 @@
 import * as Styled from "./style";
 import LoginForm from "../../Login";
-import SignupForm from "../../Signup/SignupForm";
+import SignupForm from "../../Signup";
 
 export default function ModalSign({ setModal, action }) {
   return (
@@ -9,7 +9,7 @@ export default function ModalSign({ setModal, action }) {
         <Styled.ModalLeftContent>
           <img
             src="https://www.redditstatic.com/accountmanager/bbb584033aa89e39bad69436c504c9bd.png"
-            alt="Login"
+            alt="SignIn"
           />
         </Styled.ModalLeftContent>
         <Styled.ModalRightContent>

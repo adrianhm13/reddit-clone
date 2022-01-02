@@ -9,6 +9,7 @@ export default function SignupForm({ setShowModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+
   const { error, signup, user, isPending } = useSignup();
 
   const handleSubmit = (e) => {
@@ -22,6 +23,7 @@ export default function SignupForm({ setShowModal }) {
       setShowModal(false);
     }
   }, [user]);
+
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <label>
@@ -30,7 +32,7 @@ export default function SignupForm({ setShowModal }) {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
           required
-        ></Input>
+        />
       </label>
       <label>
         <Input
@@ -38,7 +40,7 @@ export default function SignupForm({ setShowModal }) {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
           required
-        ></Input>
+        />
       </label>
       <label>
         <Input
@@ -46,7 +48,7 @@ export default function SignupForm({ setShowModal }) {
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
           required
-        ></Input>
+        />
       </label>
       <Button outline width={'100%'} marginT={'1rem'}>
         {!isPending ? "Signup" : "Loading"}

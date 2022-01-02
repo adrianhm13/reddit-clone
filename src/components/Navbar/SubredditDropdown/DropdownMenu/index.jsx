@@ -1,15 +1,16 @@
 import { useLocation } from "react-router-dom";
-
 import { useState, useEffect, useRef } from "react";
+import { useClickOutside } from "../../../../hooks/useClickOutside";
+
 import SubredditDropdownToggle from "../DropdownToggle/index";
-import { CategorySelectContainer } from "./style";
+import * as Styled from "./style";
 
 //Components
 import ModalCommunity from "../../../Modals/ModalCommunity";
 
 const transformLocation = (str) => str.slice(0, str.lastIndexOf("/"));
 
-export default function RedditDropdownMenu({ user }) {
+export default function SubredditDropdownMenu({ user }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [subredditSelected, setSubredditSelected] = useState("Home");
@@ -31,23 +32,12 @@ export default function RedditDropdownMenu({ user }) {
     }
   }, [location.pathname]);
 
-  //Run hook for outside click
-  useEffect(() => {
-    function closeModal(event) {
-      if (divFocus.current && !divFocus.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
-    }
-    document.addEventListener("mousedown", closeModal);
-    return () => {
-      document.removeEventListener("mousedown", closeModal);
-    };
-  }, []);
+  useClickOutside(divFocus, setShowDropdown)
 
   return (
-    <>
+    <Styled.SubredditToggleContainer>
       {showModal && <ModalCommunity setShowModal={setShowModal} />}
-      <CategorySelectContainer
+      <Styled.SubredditToggleButton
         ref={divFocus}
         onClick={() => setShowDropdown(!showDropdown)}
       >
@@ -56,7 +46,7 @@ export default function RedditDropdownMenu({ user }) {
         {showDropdown && (
           <SubredditDropdownToggle setShowModal={setShowModal} user={user} />
         )}
-      </CategorySelectContainer>
-    </>
+      </Styled.SubredditToggleButton>
+    </Styled.SubredditToggleContainer>
   );
 }

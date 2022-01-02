@@ -1,7 +1,7 @@
 import { useRouteMatch } from "react-router-dom";
 
 //Components
-import Votes from "../Votes/Votes";
+import Votes from "../Votes";
 import TitlePost from "./TitlePost";
 import * as Styled from "./style";
 import PostCreatedInfo from "./PostCreatedInfo";

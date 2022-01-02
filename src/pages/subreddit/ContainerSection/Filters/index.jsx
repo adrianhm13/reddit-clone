@@ -7,7 +7,7 @@ import { ReactComponent as MostVotesIcon } from "../../../../../src/assets/icons
 import { ReactComponent as NewestIcon } from "../../../../../src/assets/icons/newest.svg";
 
 export default function Filters({ onTypeFilter, onParamFilter, color }) {
-  const [isActive, setIsActive] = useState(2);
+  const [isActive, setIsActive] = useState(1);
 
   const handleClick = (typeFilter, paramFilter) => {
     onTypeFilter(typeFilter);

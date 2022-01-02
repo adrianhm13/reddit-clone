@@ -3,7 +3,7 @@ import { useFindCategory } from "../../hooks/useFindCategory";
 import { useDocument } from "../../hooks/useDocument";
 
 //Components
-import Votes from "../../components/Votes/Votes";
+import Votes from "../../components/Votes";
 import PostCreatedInfo from "../../components/PostFeed/PostCreatedInfo";
 import TitlePost from "../../components/PostFeed/TitlePost";
 import PostContent from "../../components/PostFeed/PostContent";

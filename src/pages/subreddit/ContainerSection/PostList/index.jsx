@@ -7,7 +7,7 @@ import Filters from "../Filters";
 import * as Styled from "./style";
 
 export default function ContainerSection({ subreddit }) {
-  const [typeFilter, setTypeFilter] = useState("votes");
+  const [typeFilter, setTypeFilter] = useState("createdAt");
   const [paramFilter, setParamFilter] = useState("desc");
 
   //Fetch posts

@@ -10,15 +10,15 @@ export const Container = styled.div({
 })
 export const PostContainer = styled.div({
   marginTop: '7rem',
-  backgroundColor: 'darkgray',
+  backgroundColor: '#373c3f',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-start',
   alignItems: 'center',
   margin: '0 auto',
   width: '50%',
-  gap: '1.5rem',
-  paddingBottom: '1rem',
+  paddingBottom: '3rem',
+  gap: "1rem",
 })
 
 
@@ -40,12 +40,11 @@ export const ClosePost = styled.button({
 
 export const IndividualPost = styled.div({
   backgroundColor: 'white',
-  minWidth: '570px',
-  maxWidth: '740px',
+  minWidth: '700px',
   display: 'flex',
   flexDirection: 'row',
-  minHeight: '500px',
-  borderRadius: '4px',
+  minHeight: '270px',
+  borderRadius: '4px 4px 0px 0px',
   border: '1px solid #eeeeee',
   boxShadow: `rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px`,
@@ -53,7 +52,7 @@ export const IndividualPost = styled.div({
 
 export const SectionVotes = styled.div({
   minWidth: '8%',
-  backgroundColor: '#eeeeee',
+  backgroundColor: 'white',
   borderRadius: '2px 0 0 2px',
 })
 

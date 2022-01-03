@@ -14,7 +14,7 @@ export const useFindCategory = (title) => {
         .then((snapshot) => {
           let result;
           snapshot.forEach((doc) => {
-            result = doc.data();
+            result = doc.data(); 
           });
           setCategoryId(result.id);
         })

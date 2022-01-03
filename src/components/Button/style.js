@@ -19,6 +19,9 @@ export const Button = styled.button(
     backgroundColor: props.outline ? "transparent" : "#0079d3",
     width: props.width,
     marginTop: props.marginT,
+    "&:hover": {
+      color: props.outline ? "white" : "grey",
+    },
   })
 );
 export const FilterButton = styled(Button)(

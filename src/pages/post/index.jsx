@@ -1,6 +1,7 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useFindCategory } from "../../hooks/useFindCategory";
 import { useDocument } from "../../hooks/useDocument";
+import { useComments } from "../../hooks/useComments";
 
 //Components
 import Votes from "../../components/Votes";
@@ -8,18 +9,22 @@ import PostCreatedInfo from "../../components/PostFeed/PostCreatedInfo";
 import TitlePost from "../../components/PostFeed/TitlePost";
 import PostContent from "../../components/PostFeed/PostContent";
 import * as Styled from "./style";
+import CommentSection from "./CommentSection";
 
 export default function Post() {
-  const { id: title, postId } = useParams();
+  const { subredditId, postId } = useParams();
 
   //Get category id to fetch the document
-  const { categoryId } = useFindCategory(title);
+  const { categoryId } = useFindCategory(subredditId);
 
   //History to close the single post and come back to subreddit feed
   const history = useHistory();
 
   //Listener to the post from firestore
   const { document: post, error } = useDocument(categoryId, postId);
+
+  const {listComments} = useComments(postId, categoryId)
+
 
   return (
     <Styled.Container>
@@ -34,13 +39,17 @@ export default function Post() {
               <Votes categoryId={categoryId} post={post} />
             </Styled.SectionVotes>
             <Styled.SectionPost>
-              <PostCreatedInfo post={post} />
+              <PostCreatedInfo
+                createdBy={post.createdBy}
+                createdAt={post.createdAt}
+              />
               <TitlePost title={post.title} />
               <PostContent content={post.desc} media={post.media} />
             </Styled.SectionPost>
           </Styled.IndividualPost>
         )}
         {error && <p>It could not fetch the post</p>}
+        <CommentSection listComments={listComments}  />
       </Styled.PostContainer>
     </Styled.Container>
   );

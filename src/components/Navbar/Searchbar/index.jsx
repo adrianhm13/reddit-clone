@@ -84,7 +84,7 @@ function IndividualResult({ handleClickResult, item }) {
       <img src={item.pic} alt="logo community" />
       <Styled.ItemDescription>
         <h3>{item.title}</h3>
-        <h5>{item.countUsers} members</h5>
+        <h5>{item.countMembers} members</h5>
       </Styled.ItemDescription>
     </Styled.ResultContainer>
   );
@@ -94,7 +94,7 @@ function SearchForm({ query, handleClick, handleChange }) {
   return (
     <form>
       <label>
-        <i className="fas fa-search"></i>
+        <i className="fas fa-search" />
         <input
           onClick={() => handleClick()}
           onChange={(e) => handleChange(e)}

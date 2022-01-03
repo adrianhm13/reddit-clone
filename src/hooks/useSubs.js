@@ -19,7 +19,7 @@ export const useSubs = (categoryId) => {
       //Update subreddit doc with uid and displayName in the array usersSubscribed
       await updateDoc(categoryRef, {
         usersSubscribed: arrayUnion({uid, displayName}),
-        countUsers: increment(1)
+        countMembers: increment(1)
       });
 
       //Update user doc with the categoryId in the array of categoriesSubscribed
@@ -39,7 +39,7 @@ export const useSubs = (categoryId) => {
       //Update subreddit doc with uid and displayName in the array usersSubscribed
       await updateDoc(categoryRef, {
         usersSubscribed: arrayRemove({uid, displayName}),
-        countUsers: increment(-1)
+        countMembers: increment(-1)
       });
 
       //Update user doc with the categoryId in the array of categoriesSubscribed

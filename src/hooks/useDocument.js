@@ -9,15 +9,17 @@ export const useDocument = (categoryId, postId) => {
   useEffect(() => {
     let unsubscribe;
     if (categoryId) {
-      let docRef = doc(db, "category", categoryId, "posts", postId);
-
+      const docRef = doc(db, "category", categoryId, "posts", postId);
       unsubscribe = onSnapshot(docRef, (doc) => {
         setDocument(doc.data());
         setError(null);
       });
     }
+
     return () => {
-      unsubscribe();
+      if (categoryId) {
+        unsubscribe();
+      }
     };
   }, [categoryId, postId]);
 

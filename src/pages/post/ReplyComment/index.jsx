@@ -5,7 +5,7 @@ import { useAuthContext } from "../../../hooks/useAuthContext";
 
 //Components
 import * as Styled from "./style";
-import { CommentForm } from "../../CommentForm/CommentForm";
+import { CommentForm } from "../../../components/CommentForm";
 
 export default function ReplyComment({
   setReplyForm,

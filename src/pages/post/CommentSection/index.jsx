@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { time } from "../../../utils/time";
 
-import ReplyComment from "../../../components/Input/ReplyComment";
+import ReplyComment from "../ReplyComment";
 import * as Styled from "./style";
 
 export default function CommentSection({ listComments, subredditId, postId }) {

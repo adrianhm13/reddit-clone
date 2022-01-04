@@ -3,7 +3,7 @@ import { useFirestore } from "../../../hooks/useFirestore";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 
 //Components
-import { CommentForm } from "../../../components/CommentForm/CommentForm";
+import { CommentForm } from "../../../components/CommentForm";
 import * as Styled from './style'
 
 export default function ReplyPost({ subredditId, postId }) {

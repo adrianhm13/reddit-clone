@@ -7,9 +7,12 @@ import {
   arrayRemove,
 } from "firebase/firestore";
 
-export const useVotes = (categoryID, postID) => {
-  const ref = doc(db, "category", categoryID, "posts", postID);
+export const useVotes = (categoryId, postId, commentId) => {
+  let ref = doc(db, "category", categoryId, "posts", postId);
 
+  if(commentId){
+    ref = doc(db, "category", categoryId, "posts", postId, 'comments', commentId);
+  }
   const addVote = async (data, votes) => {
     const { typeVote } = data;
 
@@ -19,7 +22,6 @@ export const useVotes = (categoryID, postID) => {
         votes: typeVote === "upvote" ? increment(votes) : increment(-votes),
       });
 
-      //Update post's usersVoted
       await updateDoc(ref, {
         votedUsers: arrayUnion(data),
       });
@@ -29,7 +31,6 @@ export const useVotes = (categoryID, postID) => {
   };
 
   const removeVote = async (data) => {
-    //Update post's userVoted
     await updateDoc(ref, {
       votedUsers: arrayRemove(data),
     });
@@ -38,12 +39,10 @@ export const useVotes = (categoryID, postID) => {
   const cancelVote = async (data) => {
     const { typeVote } = data;
 
-    //Update post's vote count
     await updateDoc(ref, {
       votes: typeVote === "upvote" ? increment(-1) : increment(1),
     });
 
-    //Update post's userVoted
     await updateDoc(ref, {
       votedUsers: arrayRemove(data),
     });

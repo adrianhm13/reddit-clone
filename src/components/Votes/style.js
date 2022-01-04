@@ -16,7 +16,6 @@ export const VotesContainer = styled.div({
   "button > i": {
     color: "#9999a1",
     fontSize: "1.3rem",
-
     ":hover": {
       color: "#809bce",
     },

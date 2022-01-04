@@ -70,3 +70,24 @@ export const Info = styled.div({
   alignItems: "center",
   gap: "1rem",
 });
+
+export const ButtonsContainer = styled.div({
+  display: 'flex',
+  lineHeight: '20px',
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: '1rem',
+  div: {
+    display: 'flex',
+    fontSize: '0.8rem',
+  },
+  'div > button': {
+    backgroundColor: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+  },
+  "div > button > i": {
+    color: "#9999a1",
+    fontSize: '1rem',
+  }
+})

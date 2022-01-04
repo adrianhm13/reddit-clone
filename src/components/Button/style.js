@@ -45,3 +45,20 @@ export const FilterButton = styled(Button)(
     color: props.active === props.id ? props.color : "grey",
   })
 );
+
+export const CommentButton = styled.button({
+  padding: "0.4rem",
+  border: "none",
+  backgroundColor: 'transparent',
+  color: "grey",
+  outline: "none",
+  cursor: "pointer",
+  transition: "0.5s",
+  "&:hover": {
+    backgroundColor: "#dee2e6",
+  },
+  i: {
+    marginRight: "0.5rem",
+    fontSize: "0.8rem",
+  }
+})

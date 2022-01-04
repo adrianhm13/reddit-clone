@@ -41,11 +41,12 @@ export default function Post() {
               <PostCreatedInfo
                 createdBy={post.createdBy}
                 createdAt={post.createdAt}
+                subredditTitle={subredditId}
               />
               <TitlePost title={post.title} />
               <PostContent content={post.desc} media={post.media} />
               <div>
-                <ReplyPost subredditId={categoryId} postId={postId}/>
+                <ReplyPost subredditId={categoryId} postId={postId} />
               </div>
             </Styled.SectionPost>
           </Styled.IndividualPost>

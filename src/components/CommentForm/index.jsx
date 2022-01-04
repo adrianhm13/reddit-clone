@@ -1,7 +1,7 @@
 import * as Styled from "./style";
 import { Button } from "../Button/style";
 
-export function CommentForm({handleSubmit, setReply, reply}) {
+export function CommentForm({ handleSubmit, setReply, reply}) {
   return (
     <Styled.Container>
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -12,7 +12,7 @@ export function CommentForm({handleSubmit, setReply, reply}) {
             required
           />
           <Styled.ButtonsContainer>
-            <Button outline onClick={() => setReply("")}>
+            <Button type="reset" outline onClick={() => setReply("")}>
               Cancel
             </Button>
             <Button type="submit">Reply</Button>

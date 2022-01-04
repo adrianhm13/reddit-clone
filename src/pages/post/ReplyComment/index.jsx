@@ -24,17 +24,22 @@ export default function ReplyComment({
   const { addDocument, response } = useFirestore(subredditId, postId);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    addDocument({
-      text: reply,
-      parentId: comment.id,
-      createdBy: { author: user.displayName, uid: user.uid },
-      votes: [],
-      totalVotes: 0,
-    });
-    if (response) {
-      setReply("");
-      setReplyForm(false);
+    if (user) {
+      e.preventDefault();
+      addDocument({
+        text: reply,
+        parentId: comment.id,
+        createdBy: { author: user.displayName, uid: user.uid },
+        votedUsers: [{ uid: user.uid, typeVote: "upvote" }],
+        votes: 1,
+      });
+      if (response) {
+        setReply("");
+        setReplyForm(false);
+      }
+    } else {
+      e.preventDefault();
+      alert("You must login to answer this post");
     }
   };
   return (

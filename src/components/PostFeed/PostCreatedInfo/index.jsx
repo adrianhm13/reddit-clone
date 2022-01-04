@@ -3,7 +3,11 @@ import { time } from "../../../utils/time";
 
 import * as Styled from "./style";
 
-export default function PostCreatedInfo({ createdAt, createdBy }) {
+export default function PostCreatedInfo({
+  createdAt,
+  createdBy,
+  subredditTitle,
+}) {
   const [timeCreated, setTimeCreated] = useState(false);
 
   useEffect(() => {
@@ -15,6 +19,13 @@ export default function PostCreatedInfo({ createdAt, createdBy }) {
 
   return (
     <Styled.Title>
+      {subredditTitle ? (
+        <p>
+          <strong>/r/{subredditTitle}</strong>
+        </p>
+      ) : (
+        ""
+      )}
       <p>Published by u/{createdBy.username}</p>
       <p>{timeCreated}</p>
     </Styled.Title>

@@ -11,6 +11,7 @@ export const Header = styled.header({
   right: "0",
   zIndex: "10",
   padding: "0.3rem",
+  borderBottom: '1px solid #f5f3f4',
   justifyContent: "space-between",
   "@media (max-width: 524px)": {
     gap: "0.3rem",

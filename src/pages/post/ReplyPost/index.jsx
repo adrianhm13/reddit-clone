@@ -1,25 +1,15 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useFirestore } from "../../../hooks/useFirestore";
-import { useClickOutside } from "../../../hooks/useClickOutside";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 
 //Components
-import * as Styled from "./style";
-import { CommentForm } from "../../CommentForm/CommentForm";
+import { CommentForm } from "../../../components/CommentForm/CommentForm";
+import * as Styled from './style'
 
-export default function ReplyComment({
-  setReplyForm,
-  comment,
-  subredditId,
-  postId,
-}) {
+export default function ReplyPost({ subredditId, postId }) {
   const [reply, setReply] = useState("");
 
   const { user } = useAuthContext();
-
-  //Ref for remove focus in the dropdown
-  const textAreaFocus = useRef(null);
-  useClickOutside(textAreaFocus, setReplyForm);
 
   const { addDocument, response } = useFirestore(subredditId, postId);
 
@@ -27,22 +17,22 @@ export default function ReplyComment({
     e.preventDefault();
     addDocument({
       text: reply,
-      parentId: comment.id,
+      parentId: null,
       createdBy: { author: user.displayName, uid: user.uid },
       votes: [],
       totalVotes: 0,
     });
     if (response) {
       setReply("");
-      setReplyForm(false);
     }
   };
   return (
-    <Styled.Container ref={textAreaFocus}>
+    <Styled.Container>
+      <p>Comment as <em>{user.displayName}</em></p>
       <CommentForm
-        handleSubmit={handleSubmit}
         reply={reply}
         setReply={setReply}
+        handleSubmit={handleSubmit}
       />
     </Styled.Container>
   );

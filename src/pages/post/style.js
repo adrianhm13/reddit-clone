@@ -6,7 +6,6 @@ export const Container = styled.div({
   position: 'absolute',
   top: '40px',
   backgroundColor: '#2b2d42',
-  zIndex: 5,
 })
 export const PostContainer = styled.div({
   marginTop: '7rem',
@@ -17,7 +16,6 @@ export const PostContainer = styled.div({
   alignItems: 'center',
   margin: '0 auto',
   width: '50%',
-  paddingBottom: '3rem',
   gap: "1rem",
 })
 
@@ -44,6 +42,7 @@ export const IndividualPost = styled.div({
   display: 'flex',
   flexDirection: 'row',
   minHeight: '270px',
+  paddingBottom: '1rem',
   borderRadius: '4px 4px 0px 0px',
   border: '1px solid #eeeeee',
   boxShadow: `rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,

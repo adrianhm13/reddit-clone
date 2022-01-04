@@ -46,7 +46,7 @@ const firestoreReducer = (state, action) => {
   }
 };
 
-export const useFirestore = (subredditId) => {
+export const useFirestore = (subredditId, postId) => {
   const [response, dispatch] = useReducer(firestoreReducer, initialState);
   const [isCancelled, setIsCancelled] = useState(false);
 
@@ -58,13 +58,18 @@ export const useFirestore = (subredditId) => {
     ref = collection(db, 'category', subredditId, 'posts')
   }
 
+  //Post's ref to add new comments/replies
+  if(postId){
+    ref = collection(db, 'category', subredditId, 'posts', postId, 'comments')
+  }
+
+  console.log(postId)
   //Dispatch if it's not cancelled
   const dispatchIfNotCancelled = (action) => {
     if (!isCancelled) {
       dispatch(action);
     }
   };
-
   //Add document
   const addDocument = async (docData) => {
     dispatch({ type: "IS_PENDING" });

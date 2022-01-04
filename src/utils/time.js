@@ -7,8 +7,8 @@ export const time = (prevDate) => {
     const year = day * 365;
     switch (true) {
         case diff < minute:
-            const seconds = Math.round(diff / 1000);
-             return `${seconds} ${seconds > 1 ? 'seconds' : 'second'} ago`
+            Math.round(diff / 1000);
+             return `less than a minute ago`
         case diff < hour:
             const minutes = Math.round(diff / minute);
             return `${minutes} ${minutes > 1 ? 'minutes' : 'minute'} ago`

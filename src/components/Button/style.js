@@ -58,7 +58,7 @@ export const CommentButton = styled.button({
     backgroundColor: "#dee2e6",
   },
   i: {
-    marginRight: "0.5rem",
+    marginRight: "0.3rem",
     fontSize: "0.8rem",
   }
 })

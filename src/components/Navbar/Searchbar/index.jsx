@@ -11,7 +11,7 @@ export default function Searchbar() {
   const inputFocus = useRef(null);
 
   const { documents, searchCategory } = useSearch();
-
+  console.log("documents", documents);
   //Run hook for outside click
   useEffect(() => {
     function closeModal(event) {
@@ -35,6 +35,7 @@ export default function Searchbar() {
   const handleChange = (e) => {
     setQuery(e.target.value);
     let q = e.target.value;
+
     const newFilter = documents.filter((doc) => {
       return doc.title.toLowerCase().includes(q.toLowerCase());
     });
@@ -84,7 +85,9 @@ function IndividualResult({ handleClickResult, item }) {
       <img src={item.pic} alt="logo community" />
       <Styled.ItemDescription>
         <h3>{item.title}</h3>
-        <h5>{item.countMembers} members</h5>
+        <h5>{`${item.countMembers} ${
+          item.countMembers === 1 ? "member" : "members"
+        }`}</h5>
       </Styled.ItemDescription>
     </Styled.ResultContainer>
   );

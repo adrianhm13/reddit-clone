@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Container = styled.div({
   margin: "-10px",
   backgroundColor: "white",
-  minWidth: "700px",
+  width: "100%",
   maxWidth: "700px",
   padding: "0.8rem 0.8rem 2rem 0.8rem",
   display: "flex",
@@ -89,5 +89,8 @@ export const ButtonsContainer = styled.div({
   "div > button > i": {
     color: "#9999a1",
     fontSize: '1rem',
-  }
+  },
+  "@media (max-width: 1024px)": {
+    gap: "0",
+  },
 })

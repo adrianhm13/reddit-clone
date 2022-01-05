@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
 
-import SubredditDropdownToggle from "../DropdownToggle/index";
+import SubredditDropdownToggle from "../DropdownToggle";
 import * as Styled from "./style";
 
 //Components

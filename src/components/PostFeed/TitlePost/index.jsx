@@ -1,9 +1,9 @@
-import { Title } from "./style";
+import * as Styled from "./style";
 
 export default function TitlePost({ title }) {
   return (
     <div>
-        <Title>{title}</Title>
+        <Styled.Title>{title}</Styled.Title>
     </div>
   );
 }

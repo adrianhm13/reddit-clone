@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
 
 export const Container = styled.div({
-  width: "100%",
+  minWidth: "100%",
   minHeight: "calc(100vh - 40px)",
-  position: "absolute",
   top: "40px",
   backgroundColor: "#2b2d42",
+  "@media (max-width: 320px)": {
+    minWidth: "100%",
+  },
 });
 export const PostContainer = styled.div({
   marginTop: "7rem",
@@ -16,7 +18,12 @@ export const PostContainer = styled.div({
   alignItems: "center",
   margin: "0 auto",
   width: "50%",
+  paddingTop: "2.5rem",
   gap: "1rem",
+  "@media (max-width: 1024px)": {
+    width: "100%",
+    padding: "3rem 0.2rem",
+  },
 });
 
 export const ClosePost = styled.button({
@@ -36,12 +43,14 @@ export const ClosePost = styled.button({
 });
 
 export const IndividualPost = styled.div({
+  overflow: 'hidden',
   backgroundColor: "white",
-  minWidth: "700px",
+  width: "100%",
+  maxWidth: "700px",
   display: "flex",
   flexDirection: "row",
   minHeight: "270px",
-  paddingBottom: "1rem",
+  padding: "1rem",
   borderRadius: "4px 4px 0px 0px",
   border: "1px solid #eeeeee",
   boxShadow: `rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
@@ -55,7 +64,7 @@ export const SectionVotes = styled.div({
 });
 
 export const SectionPost = styled.div({
-  width: "93%",
+  width: "100%",
   borderRadius: "0 2px 2px 0",
   display: "flex",
   flexDirection: "column",

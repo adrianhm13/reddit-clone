@@ -16,9 +16,17 @@ export default function PostFeed({ post, categoryId }) {
         <Votes categoryId={categoryId} post={post} />
       </Styled.SectionVotes>
       <Styled.SectionPost>
-        <PostCreatedInfo createdAt={post.createdAt} createdBy={post.createdBy} />
+        <PostCreatedInfo
+          createdAt={post.createdAt}
+          createdBy={post.createdBy}
+        />
         <TitlePost title={post.title} />
-        <PostContent content={post.desc} media={post.media} feed />
+        <PostContent
+          content={post.desc}
+          media={post.media}
+          countComments={post.countComments}
+          feed
+        />
       </Styled.SectionPost>
     </Styled.SectionMain>
   );

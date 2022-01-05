@@ -1,6 +1,12 @@
 import { useReducer, useState, useEffect } from "react";
 import { db, timestamp } from "../firebase/config";
-import { collection, setDoc, doc} from "firebase/firestore";
+import {
+  collection,
+  setDoc,
+  doc,
+  updateDoc,
+  increment,
+} from "firebase/firestore";
 
 let initialState = {
   document: null,
@@ -51,19 +57,19 @@ export const useFirestore = (subredditId, postId) => {
   const [isCancelled, setIsCancelled] = useState(false);
 
   //Collection reference
-  let ref = collection(db, 'category');
+  let ref = collection(db, "category");
 
   //Ref for the category for new posts
-  if(subredditId){
-    ref = collection(db, 'category', subredditId, 'posts')
+  if (subredditId) {
+    ref = collection(db, "category", subredditId, "posts");
   }
 
   //Post's ref to add new comments/replies
-  if(postId){
-    ref = collection(db, 'category', subredditId, 'posts', postId, 'comments')
+  if (postId) {
+    ref = collection(db, "category", subredditId, "posts", postId, "comments");
   }
 
-  console.log(postId)
+  console.log(postId);
   //Dispatch if it's not cancelled
   const dispatchIfNotCancelled = (action) => {
     if (!isCancelled) {
@@ -79,8 +85,18 @@ export const useFirestore = (subredditId, postId) => {
 
       const addedDocument = doc(ref);
 
-      //Update doc with the id
-      await setDoc(addedDocument, { ...docData, createdAt, id: addedDocument.id });
+      //Update doc with the data
+      await setDoc(addedDocument, {
+        ...docData,
+        createdAt,
+        id: addedDocument.id,
+      });
+
+      //Update countComments if a comment it's being added
+      if (postId) {
+        const postRef = doc(db, "category", subredditId, "posts", postId);
+        await updateDoc(postRef, { countComments: increment(1) });
+      }
 
       dispatchIfNotCancelled({ type: "ADD_DOCUMENT", payload: addedDocument });
     } catch (error) {

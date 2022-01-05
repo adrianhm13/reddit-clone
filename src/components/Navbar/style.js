@@ -11,7 +11,7 @@ export const Header = styled.header({
   right: "0",
   zIndex: "10",
   padding: "0.3rem",
-  borderBottom: '1px solid #f5f3f4',
+  borderBottom: "1px solid #f5f3f4",
   justifyContent: "space-between",
   "@media (max-width: 524px)": {
     gap: "0.3rem",
@@ -42,12 +42,15 @@ export const LogoContainer = styled.div({
     fontSize: "1rem",
     fontFamily: "Lexend Zetta, sans-serif",
   },
-  "@media (max-width: 524px) ": {
+  "@media (max-width: 768px) ": {
     gap: "0.1rem",
+    width: "60%",
     "& a > h2": {
       display: "none",
     },
+    
   },
+
 });
 
 export const SignInContainer = styled.div({
@@ -56,4 +59,7 @@ export const SignInContainer = styled.div({
   gap: "5px",
   flexGrow: "1",
   marginRight: "auto",
+  "@media (max-width: 524px) ": {
+    width: "30%",
+  },
 });

@@ -48,7 +48,7 @@ export const HeaderCommunityDetails = styled.div({
     width: "72px",
     height: "72px",
     borderRadius: "50%",
-    transition: "0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95)",
+    transition: "0.1s cubic-bezier(0.45, 0.05, 0.55, 0.95)",
     "@media (max-width: 475px)": {
       top: "0",
       position: "relative",
@@ -111,8 +111,10 @@ export const headerScroll = css({
   button: {
     minWidth: "7rem",
   },
-  "@media (max-width: 524px)": {
-    top: "3rem",
-    padding: "0",
+  "@media (max-width: 760px)": {
+    position: "fixed",
+    top: 'auto',
+    bottom: '0',
+    left: '0',
   },
 });

@@ -20,6 +20,9 @@ export const PostContainer = styled.div({
   width: "50%",
   paddingTop: "2.5rem",
   gap: "1rem",
+  "@media (max-width: 760px)": {
+    marginTop: "2rem",
+  },
   "@media (max-width: 1024px)": {
     width: "100%",
     padding: "3rem 0.2rem",
@@ -37,8 +40,8 @@ export const ClosePost = styled.button({
   ":hover": {
     color: "grey",
   },
-  ":last-child": {
-    marginLeft: "0.5rem",
+  "& :last-child": {
+    marginLeft: "1rem",
   },
 });
 

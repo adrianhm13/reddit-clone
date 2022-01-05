@@ -11,7 +11,7 @@ export default function Searchbar() {
   const inputFocus = useRef(null);
 
   const { documents, searchCategory } = useSearch();
-  console.log("documents", documents);
+
   //Run hook for outside click
   useEffect(() => {
     function closeModal(event) {
@@ -40,7 +40,6 @@ export default function Searchbar() {
       return doc.title.toLowerCase().includes(q.toLowerCase());
     });
     if (q !== "") {
-      console.log("There is query so filter");
       setFilteredDocs(newFilter);
     } else {
       setFilteredDocs("");

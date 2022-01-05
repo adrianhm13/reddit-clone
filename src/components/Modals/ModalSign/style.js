@@ -35,14 +35,8 @@ export const ModalContent = styled.div({
     color: "darkgrey",
     cursor: "pointer",
   },
-  "@media (max-width: 480px)": {
+  "@media (max-width: 768px)": {
     width: "90%",
-  },
-  "@media (max-width: 770px)": {
-    width: "90%",
-  },
-  "@media (max-width: 1024px)": {
-    width: "65%",
   },
 });
 export const ModalLeftContent = styled.div({
@@ -62,6 +56,9 @@ export const InputsSign = styled.div({
   display: "flex",
   flexDirection: "column",
   width: "50%",
+  "@media (max-width: 1024px)": {
+    width: "100%"
+  }
 });
 export const Divider = styled.div({
   width: "50%",

@@ -36,7 +36,7 @@ export const ProfileDropdown = styled.div({
   position: "absolute",
   left: "0",
   top: "30px",
-  zIndex: "1",
+  zIndex: "6",
   width: "100%",
   height: "100px",
   backgroundColor: "white",

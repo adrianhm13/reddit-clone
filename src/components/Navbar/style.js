@@ -45,6 +45,9 @@ export const LogoContainer = styled.div({
   "@media (max-width: 768px) ": {
     gap: "0.1rem",
     width: "60%",
+    img: {
+      transform: "translateY(-3px)",
+    },
     "& a > h2": {
       display: "none",
     },
@@ -60,6 +63,6 @@ export const SignInContainer = styled.div({
   flexGrow: "1",
   marginRight: "auto",
   "@media (max-width: 524px) ": {
-    width: "30%",
+    width: "35%",
   },
 });

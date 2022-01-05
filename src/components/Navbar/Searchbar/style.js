@@ -6,6 +6,13 @@ export const SearchContainer = styled.div({
   width: "auto",
   height: "auto",
   position: "relative",
+  "@media (max-width: 760px)": {
+    zIndex: '5',
+    position: 'absolute',
+    bottom: '-1.5rem',
+    left: '0',
+    width: '100%',
+  },
   "& form": {
     paddingRight: "1rem",
     marginRight: "auto",
@@ -15,7 +22,8 @@ export const SearchContainer = styled.div({
     width: "70%",
     height: "100%",
     "@media (max-width: 760px)": {
-      display: "none",
+      width: '100%',
+      height: '2rem',
     },
     ":hover": {
       border: "1px solid #0079d3",
@@ -56,7 +64,8 @@ export const SearchResults = styled.div({
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px`,
   minHeight: "10vh",
   "@media (max-width: 760px)": {
-    display: "none",
+    top: "35px",
+    width: '100%',
   },
 });
 

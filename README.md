@@ -9,6 +9,4 @@
         - [X] Header community
         - [X] Subreddit selection
     - [X] Fix Header/animation
-- [ ] Homepage feed
-    - [ ] Retrieve user's subscribed subreddits, and then make a query "in" with collectionGroup "posts", maximum 10
 - [ ] Login as guest

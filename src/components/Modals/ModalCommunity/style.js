@@ -31,14 +31,15 @@ export const ModalContent = styled.div({
   flexDirection: "column",
   transform: "translate(-50%, -50%)",
   borderRadius: "5px",
-  "@media(max-width: 760px": {
+  "@media (min-width: 320px)": {
     width: "90%",
+    overflowY: "auto",
+    height: "90%",
   },
-  "@media (min-width: 761px)": {
+  "@media (min-width: 1024px)": {
     width: "50%",
-  },
-  "@media (min-width: 1200px)": {
-    width: "25%",
+    overflowY: "auto",
+    height: "auto",
   },
 });
 
@@ -98,12 +99,12 @@ export const InputContainer = styled.div({
 });
 
 export const ButtonsContainer = styled.div({
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'flex-end',
-  gap: '1rem',
-  width: '100%',
-  padding: '1rem',
-  backgroundColor: '#d6d6d6',
-  borderRadius: '0 0 5px 5px',
-})
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "flex-end",
+  gap: "1rem",
+  width: "100%",
+  padding: "1rem",
+  backgroundColor: "#d6d6d6",
+  borderRadius: "0 0 5px 5px",
+});

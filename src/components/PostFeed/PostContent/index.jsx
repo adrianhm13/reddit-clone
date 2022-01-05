@@ -12,19 +12,19 @@ export default function PostContent({ content, feed, media, countComments }) {
           </Styled.PostFeed>
           <Styled.ButtonsContainer>
             <CommentButton>
-              <i class="far fa-comment-alt" />
+              <i className="far fa-comment-alt" />
               {countComments} Comments
             </CommentButton>
             <CommentButton onClick={(e) => e.preventDefault()}>
-              <i class="fas fa-gift" />
+              <i className="fas fa-gift" />
               Reward
             </CommentButton>
             <CommentButton onClick={(e) => e.preventDefault()}>
-              <i class="fas fa-share" />
+              <i className="fas fa-share" />
               Share
             </CommentButton>
             <CommentButton onClick={(e) => e.preventDefault()}>
-              <i class="far fa-bookmark" />
+              <i className="far fa-bookmark" />
               Save
             </CommentButton>
           </Styled.ButtonsContainer>

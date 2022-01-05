@@ -77,6 +77,7 @@ export const ButtonsContainer = styled.div({
   flexDirection: 'row',
   alignItems: 'center',
   gap: '1rem',
+  width: 'auto',
   div: {
     display: 'flex',
     fontSize: '0.8rem',

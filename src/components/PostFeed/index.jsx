@@ -9,7 +9,7 @@ import PostContent from "./PostContent";
 
 export default function PostFeed({ post, categoryId }) {
   const { url } = useRouteMatch();
-
+  console.log('url', url)
   return (
     <Styled.SectionMain to={`${url}/${post.id}`} media={post.media}>
       <Styled.SectionVotes>

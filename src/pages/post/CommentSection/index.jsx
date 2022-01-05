@@ -148,10 +148,13 @@ function CommentButtons({ setReplyForm, comment, subredditId, postId }) {
         </button>
       </div>
       <CommentButton onClick={() => setReplyForm(true)}>
-        <i class="far fa-comment-alt" />
+        <i className="far fa-comment-alt" />
         Reply
       </CommentButton>
-      <CommentButton>Share</CommentButton>
+      <CommentButton>
+        <i className="fas fa-share" />
+        Share
+      </CommentButton>
     </Styled.ButtonsContainer>
   );
 }

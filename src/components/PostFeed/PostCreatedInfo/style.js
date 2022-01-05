@@ -13,14 +13,9 @@ export const Title = styled.div({
     width: "20px",
     height: "20px",
   },
-  h6: {
-    margin: "0",
-    fontSize: "0.8rem",
-    fontWeight: "600",
-  },
   p: {
     margin: "0",
-    fontSize: "0.8rem",
+    fontSize: "0.7rem",
     fontWeight: "200",
   },
 });

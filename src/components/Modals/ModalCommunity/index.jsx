@@ -18,7 +18,7 @@ export default function ModalCommunity({ setShowModal }) {
   const [description, setDescription] = useState("");
 
   const { user } = useAuthContext();
-  const { addDocument } = useFirestore("category");
+  const { addDocument } = useFirestore();
 
   const handleAddCommunity = async (e) => {
     e.preventDefault();
@@ -28,6 +28,7 @@ export default function ModalCommunity({ setShowModal }) {
       title,
       subtitle,
       description,
+      countMembers: 0,
       color: "#2e4756",
       url,
       pic: "https://a.thumbs.redditmedia.com/kIpBoUR8zJLMQlF8azhN-kSBsjVUidHjvZNLuHDONm8.png",

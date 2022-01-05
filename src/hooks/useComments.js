@@ -6,7 +6,6 @@ export const useComments = (postId, subredditId) => {
   const [listComments, setListComments] = useState();
 
   useEffect(() => {
-    console.log(postId, subredditId);
     let unsubscribe;
     if (postId && subredditId) {
       const q = collection(
@@ -22,7 +21,6 @@ export const useComments = (postId, subredditId) => {
         snapshot.forEach((doc) => {
           results.push({ ...doc.data(), id: doc.id });
         });
-        console.log(results);
         setListComments(results);
       });
     }

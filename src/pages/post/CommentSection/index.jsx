@@ -85,7 +85,6 @@ function Comment({
 
 function CommentButtons({ setReplyForm, comment, subredditId, postId }) {
   const [userVote, setUserVote] = useState("");
-  console.log("comment:", comment);
   const { user } = useAuthContext();
   const { addVote, removeVote, cancelVote } = useVotes(
     subredditId,

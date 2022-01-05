@@ -17,6 +17,7 @@ export const useSearch = () => {
           results.push({ ...doc.data(), id: doc.id });
         });
         setDocuments(results);
+        console.log(results)
         setError(null);
       })
       .catch((error) => {

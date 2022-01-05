@@ -26,7 +26,6 @@ export const useCollection = (c, userCategory) => {
       });
 
       return () => {
-        console.log("Unsubscribing dropdown categories");
         unsubscribe();
       };
     }

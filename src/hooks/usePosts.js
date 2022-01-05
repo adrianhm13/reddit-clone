@@ -21,7 +21,6 @@ export const usePosts = (categoryId, typeFilter, paramFilter) => {
       setError(null);
     });
     return () => {
-      console.log('unsubscribing')
       unsubscribe();
     };
   }, [categoryId, typeFilter, paramFilter]);

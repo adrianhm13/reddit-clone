@@ -69,7 +69,6 @@ export const useFirestore = (subredditId, postId) => {
     ref = collection(db, "category", subredditId, "posts", postId, "comments");
   }
 
-  console.log(postId);
   //Dispatch if it's not cancelled
   const dispatchIfNotCancelled = (action) => {
     if (!isCancelled) {

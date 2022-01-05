@@ -26,9 +26,7 @@ export default function Searchbar() {
   }, []);
 
   const handleClick = () => {
-    if (documents === null) {
-      searchCategory();
-    }
+    searchCategory();
     setShowSearchContainer(true);
   };
 

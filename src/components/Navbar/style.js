@@ -51,9 +51,7 @@ export const LogoContainer = styled.div({
     "& a > h2": {
       display: "none",
     },
-    
   },
-
 });
 
 export const SignInContainer = styled.div({
@@ -64,5 +62,6 @@ export const SignInContainer = styled.div({
   marginRight: "auto",
   "@media (max-width: 524px) ": {
     width: "35%",
+    paddingBottom: "0.3rem",
   },
 });

@@ -40,8 +40,17 @@ export default function LoginForm({ setShowModal }) {
           autocomplete="current-password"
         ></Input>
       </label>
-      <Button outline width={"100%"} marginT={"1rem"}>
-        {isPending ? <>Loading</> : <>Login</>}
+      <Button type="submit" outline width={"100%"} marginT={"1rem"}>
+        {isPending ? "Loading" : "Login"}
+      </Button>
+      <Button
+        type="button"
+        onClick={() => login("test@gmail.com", "123456")}
+        outline
+        width={"100%"}
+        marginT={"1rem"}
+      >
+        {isPending ? "Loading" : "Login as test user"}
       </Button>
       {error && <p>Email or password incorrects. Please try again.</p>}
     </form>

@@ -31,7 +31,7 @@ export const useSignup = () => {
       await updateProfile(auth.currentUser, {displayName: username})
 
       //Add user to users collection Firebase
-      await setDoc(doc(db, 'users', response.user.uid), {uid: response.user.uid})
+      await setDoc(doc(db, 'users', response.user.uid), {uid: response.user.uid, categoriesSubscribed: []})
 
       //Dispatch login action
       dispatch({ type: "LOGIN", payload: response.user });

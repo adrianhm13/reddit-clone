@@ -46,7 +46,7 @@ export default function Filters({ onTypeFilter, onParamFilter, color }) {
         id={3}
         color={color}
         onClick={() => {
-          handleClick("comments", "desc");
+          handleClick("countComments", "desc");
           setIsActive(3);
         }}
       >

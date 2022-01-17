@@ -56,6 +56,8 @@ export const SearchContainer = styled.div({
 export const SearchResults = styled.div({
   position: "absolute",
   display: "flex",
+  maxHeight: '50vh',
+  overflowY: 'auto',
   flexDirection: "column",
   width: "60%",
   top: "40px",

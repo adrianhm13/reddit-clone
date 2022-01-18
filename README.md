@@ -6,6 +6,7 @@
 
 ## Technologies
 
+  <table>
 <tr>
     <td align="center"height="108px" width="108px">
       <img
@@ -53,6 +54,7 @@
       <br /><strong>Emotion/Styled</strong>
     </td>
 </tr>
+</table>
 
 ## Features
 
